@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_get_imputs",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_get_imputs",
+  "parent":{
+    "name":"inputs",
+    "path":"folders/Scripts/inputs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
