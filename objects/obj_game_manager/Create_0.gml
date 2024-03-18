@@ -20,4 +20,4 @@ view_port_width = view_wport[0];
 view_port_height = view_hport[0];
 
 
-show_debug_log(false);
+show_debug_log(true);
