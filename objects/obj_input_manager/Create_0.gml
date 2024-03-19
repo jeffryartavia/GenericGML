@@ -1,0 +1,17 @@
+is_keyboard_connected=false;
+key_left=false;
+key_right=false;
+key_up=false;
+key_down=false;
+key_left_stick_r=false;
+key_right_stick_r=false;
+key_up_stick_r=false;
+key_down_stick_r=false;
+key_shot_r=false;
+key_jump=false;
+key_glide=false;
+key_enter=false;
+key_start=false;
+key_b=false;
+key_y=false;
+key_shot=false;

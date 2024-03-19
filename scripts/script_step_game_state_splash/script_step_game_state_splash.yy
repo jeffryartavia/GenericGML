@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"script_step_game_state_splash",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"script_step_game_state_splash",
+  "parent":{
+    "name":"step_game_states",
+    "path":"folders/Scripts/step_game_states.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"script_imputs_manager",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"script_imputs_manager",
+  "parent":{
+    "name":"inputs",
+    "path":"folders/Scripts/inputs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

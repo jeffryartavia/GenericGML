@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"script_draw_game_state_main_menu",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"script_draw_game_state_main_menu",
+  "parent":{
+    "name":"draw_game_state",
+    "path":"folders/Scripts/draw_game_state.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
