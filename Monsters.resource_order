@@ -19,7 +19,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"obj_game_control","order":2,"path":"objects/obj_game_control/obj_game_control.yy",},
+    {"name":"obj_game_input_manager","order":2,"path":"objects/obj_game_input_manager/obj_game_input_manager.yy",},
     {"name":"obj_main_splash","order":1,"path":"objects/obj_main_splash/obj_main_splash.yy",},
     {"name":"rm_credits","order":4,"path":"rooms/rm_credits/rm_credits.yy",},
     {"name":"rm_lobby","order":1,"path":"rooms/rm_lobby/rm_lobby.yy",},

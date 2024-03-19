@@ -1,6 +1,6 @@
 {
   "$GMProject":"",
-  "%Name":"Monsters",
+  "%Name":"GenericGML",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -34,10 +34,9 @@
   "MetaData":{
     "IDEVersion":"2024.2.0.132",
   },
-  "name":"Monsters",
+  "name":"GenericGML",
   "resources":[
     {"id":{"name":"fn_century_gothic12","path":"fonts/fn_century_gothic12/fn_century_gothic12.yy",},},
-    {"id":{"name":"obj_game_control","path":"objects/obj_game_control/obj_game_control.yy",},},
     {"id":{"name":"obj_game_manager","path":"objects/obj_game_manager/obj_game_manager.yy",},},
     {"id":{"name":"obj_main_splash","path":"objects/obj_main_splash/obj_main_splash.yy",},},
     {"id":{"name":"rm_credits","path":"rooms/rm_credits/rm_credits.yy",},},
