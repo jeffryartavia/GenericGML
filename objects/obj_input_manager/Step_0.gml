@@ -1,3 +1,2 @@
-/// @description Insert description here
-// You can write your code in this editor
-imputs_manager();
+input_variable_definitions();
+short_hands();

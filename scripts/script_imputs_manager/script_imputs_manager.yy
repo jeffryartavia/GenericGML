@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"script_imputs_manager",
   "parent":{
-    "name":"inputs",
-    "path":"folders/Scripts/inputs.yy",
+    "name":"inputs_manager",
+    "path":"folders/Scripts/inputs_manager.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

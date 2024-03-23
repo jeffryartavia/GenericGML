@@ -14,10 +14,9 @@ enum GAME_STATES {
 }
 
 // state of the game definition.
-game_state = GAME_STATES.SPLASH;
+global.game_state = GAME_STATES.SPLASH;
 
 view_port_width = view_wport[0];
 view_port_height = view_hport[0];
 
 
-show_debug_log(false);

@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 var _change_game_state = function() {
-	obj_game_manager.game_state = GAME_STATES.MAIN_MENU;
+	global.game_state = GAME_STATES.MAIN_MENU;
 	room_goto(rm_lobby);
 	instance_destroy(self);
 }

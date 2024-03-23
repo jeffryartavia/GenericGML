@@ -10,7 +10,7 @@
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
     {"name":"Scripts","order":5,"path":"folders/Scripts.yy",},
     {"name":"draw_game_state","order":8,"path":"folders/Scripts/draw_game_state.yy",},
-    {"name":"inputs","order":7,"path":"folders/Scripts/inputs.yy",},
+    {"name":"inputs_manager","order":7,"path":"folders/Scripts/inputs_manager.yy",},
     {"name":"step_game_states","order":6,"path":"folders/Scripts/step_game_states.yy",},
     {"name":"Sequences","order":11,"path":"folders/Sequences.yy",},
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},

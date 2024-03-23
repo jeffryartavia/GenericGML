@@ -20,7 +20,7 @@
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"draw_game_state","folderPath":"folders/Scripts/draw_game_state.yy","name":"draw_game_state","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"inputs","folderPath":"folders/Scripts/inputs.yy","name":"inputs","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"inputs_manager","folderPath":"folders/Scripts/inputs_manager.yy","name":"inputs_manager","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"step_game_states","folderPath":"folders/Scripts/step_game_states.yy","name":"step_game_states","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sequences","folderPath":"folders/Sequences.yy","name":"Sequences","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Shaders","folderPath":"folders/Shaders.yy","name":"Shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -37,7 +37,7 @@
   },
   "name":"GenericGML",
   "resources":[
-    {"id":{"name":"fn_century_gothic12","path":"fonts/fn_century_gothic12/fn_century_gothic12.yy",},},
+    {"id":{"name":"fnt_century_gothic8","path":"fonts/fnt_century_gothic8/fnt_century_gothic8.yy",},},
     {"id":{"name":"obj_game_manager","path":"objects/obj_game_manager/obj_game_manager.yy",},},
     {"id":{"name":"obj_main_splash","path":"objects/obj_main_splash/obj_main_splash.yy",},},
     {"id":{"name":"obj_input_manager","path":"objects/obj_input_manager/obj_input_manager.yy",},},

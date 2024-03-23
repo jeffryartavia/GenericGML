@@ -1,17 +1,8 @@
-is_keyboard_connected=false;
-key_left=false;
-key_right=false;
-key_up=false;
-key_down=false;
-key_left_stick_r=false;
-key_right_stick_r=false;
-key_up_stick_r=false;
-key_down_stick_r=false;
-key_shot_r=false;
-key_jump=false;
-key_glide=false;
-key_enter=false;
-key_start=false;
-key_b=false;
-key_y=false;
-key_shot=false;
+////all_debug_monitors
+show_keyboard_debug = false;
+show_mouse_debug = false;
+show_gamepad_debug = false;
+show_debug_console = false;
+
+//Gamepad global Configuration.
+global.gamepad_dead_zone = 0.05;

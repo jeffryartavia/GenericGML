@@ -5,8 +5,10 @@ global.delta_multiplier = global.actual_delta/global.target_delta;
 view_port_width = view_wport[0];
 view_port_height = view_hport[0];
 
+
+
 // State Machine of the whole game.
-switch(game_state){
+switch(global.game_state){
 	case GAME_STATES.CREDITS: step_game_state_credits(); break;
 	case GAME_STATES.MAIN_MENU: step_game_state_main_menu(); break;
 	case GAME_STATES.PAUSED: step_game_state_paused(); break;	
@@ -14,3 +16,5 @@ switch(game_state){
 	case GAME_STATES.SPLASH: step_game_state_splash(); break;
 	case GAME_STATES.TUTORIAL: step_game_state_tutorial(); break;
 }
+
+
