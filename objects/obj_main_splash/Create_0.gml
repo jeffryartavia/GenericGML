@@ -1,11 +1,8 @@
-/// @description Insert description here
-// You can write your code in this editor
-
-var _change_game_state = function() {
+var _transition = function() {
+	time_source_destroy(_time_source);
+	instance_create_depth(x,y,-999, obj_fade,{siguiente : rm_main_menu_screen});
 	global.game_state = GAME_STATES.MAIN_MENU;
-	room_goto(rm_lobby);
-	instance_destroy(self);
 }
 
-_time_source = time_source_create(time_source_game, 2, time_source_units_seconds, _change_game_state);
+_time_source = time_source_create(time_source_game, 2, time_source_units_seconds, _transition);
 time_source_start(_time_source);

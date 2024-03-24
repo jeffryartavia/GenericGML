@@ -1,13 +1,7 @@
-// Delta Time Update: delta_multiplier
+// DELTA TIME UPDATE
 global.actual_delta = delta_time / 1000000;
 global.delta_multiplier = global.actual_delta/global.target_delta;
 
-view_port_width = view_wport[0];
-view_port_height = view_hport[0];
-
-
-
-// State Machine of the whole game.
 switch(global.game_state){
 	case GAME_STATES.CREDITS: step_game_state_credits(); break;
 	case GAME_STATES.MAIN_MENU: step_game_state_main_menu(); break;

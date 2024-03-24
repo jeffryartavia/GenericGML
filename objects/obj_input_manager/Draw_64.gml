@@ -5,6 +5,14 @@ var _row_i = 0;
 var _col_width = 125;
 var _col_i = 0;
 
+if (show_game_info) {
+    draw_text(_col_i*_col_width, _row_i++*_row_height, $"game_state: {global.game_state}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"current_room: {room_get_name(room)}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"instance_count: {instance_count}");
+}
+
+
+
 if (show_gamepad_debug) {
 	
 	
@@ -111,406 +119,407 @@ if (show_gamepad_debug) {
 
 if (show_keyboard_debug) {
 		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"KEYBOARD");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"KEYBOARD");
 		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"any: {global.key_any}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_P: {global.key_any_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_R: {global.key_any_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"none: {global.key_none}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_P: {global.key_none_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_R: {global.key_none_released}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any: {KEY_ANY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_P: {KEY_ANY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_R: {KEY_ANY_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none: {KEY_NONE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_P: {KEY_NONE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_R: {KEY_NONE_RELEASED}");
 		
-		/********************************************************************/_col_i++; _row_i=0;
-		// ESCAPE f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape: {global.key_escape}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape_P: {global.key_escape_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape_R: {global.key_escape_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1: {global.key_f1}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1_P: {global.key_f1_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1_R: {global.key_f1_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2: {global.key_f2}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2_P: {global.key_f2_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2_R: {global.key_f2_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3: {global.key_f3}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3_P: {global.key_f3_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3_R: {global.key_f3_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4: {global.key_f4}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4_P: {global.key_f4_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4_R: {global.key_f4_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5: {global.key_f5}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5_P: {global.key_f5_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5_R: {global.key_f5_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6: {global.key_f6}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6_P: {global.key_f6_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6_R: {global.key_f6_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7: {global.key_f7}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7_P: {global.key_f7_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7_R: {global.key_f7_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8: {global.key_f8}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8_P: {global.key_f8_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8_R: {global.key_f8_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9: {global.key_f9}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9_P: {global.key_f9_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9_R: {global.key_f9_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10: {global.key_f10}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10_P: {global.key_f10_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10_R: {global.key_f10_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11: {global.key_f11}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11_P: {global.key_f11_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11_R: {global.key_f11_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12: {global.key_f12}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12_P: {global.key_f12_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12_R: {global.key_f12_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// ` 1 2 3 4 5 6 7 8 9 0 - =
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote: {global.key_backquote}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote_P: {global.key_backquote_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote_R: {global.key_backquote_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"1: {global.key_1}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"1_P: {global.key_1_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"1_R: {global.key_1_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"2: {global.key_2}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"2_P: {global.key_2_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"2_R: {global.key_2_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"3: {global.key_3}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"3_P: {global.key_3_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"3_R: {global.key_3_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"4: {global.key_4}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"4_P: {global.key_4_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"4_R: {global.key_4_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"5: {global.key_5}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"5_P: {global.key_5_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"5_R: {global.key_5_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"6: {global.key_6}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"6_P: {global.key_6_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"6_R: {global.key_6_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"7: {global.key_7}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"7_P: {global.key_7_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"7_R: {global.key_7_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"8: {global.key_8}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"8_P: {global.key_8_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"8_R: {global.key_8_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"9: {global.key_9}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"9_P: {global.key_9_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"9_R: {global.key_9_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"0: {global.key_0}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_P: {global.key_0_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_R: {global.key_0_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus: {global.key_minus}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_P: {global.key_minus_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_R: {global.key_minus_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals: {global.key_equals}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_P: {global.key_equals_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_R: {global.key_equals_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace: {global.key_backspace}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace_P: {global.key_backspace_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace_R: {global.key_backspace_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// tab q w e r t y u i o p [ ] \ 
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab: {global.key_tab}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab_P: {global.key_tab_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab_R: {global.key_tab_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"q: {global.key_q}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"q_P: {global.key_q_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"q_R: {global.key_q_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"w: {global.key_w}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"w_P: {global.key_w_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"w_R: {global.key_w_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"e: {global.key_e}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"e_P: {global.key_e_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"e_R: {global.key_e_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"r: {global.key_r}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"r_P: {global.key_r_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"r_R: {global.key_r_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"t: {global.key_t}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"t_P: {global.key_t_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"t_R: {global.key_t_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"y: {global.key_y}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"y_P: {global.key_y_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"y_R: {global.key_y_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"u: {global.key_u}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"u_P: {global.key_u_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"u_R: {global.key_u_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"i: {global.key_i}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"i_P: {global.key_i_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"i_R: {global.key_i_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"o: {global.key_o}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"o_P: {global.key_o_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"o_R: {global.key_o_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"p: {global.key_p}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"p_P: {global.key_p_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"p_R: {global.key_p_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket: {global.key_left_bracket}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket_P: {global.key_left_bracket_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket_R: {global.key_left_bracket_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket: {global.key_right_bracket}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket_P: {global.key_right_bracket_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket_R: {global.key_right_bracket_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash: {global.key_backslash}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash_P: {global.key_backslash_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash_R: {global.key_backslash_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// CAPS_LOCK a s d f g h j k l ; '
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock: {global.key_caps_lock}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock_P: {global.key_caps_lock_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock_R: {global.key_caps_lock_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"a: {global.key_a}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"a_P: {global.key_a_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"a_R: {global.key_a_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"s: {global.key_s}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"s_P: {global.key_s_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"s_R: {global.key_s_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"d: {global.key_d}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"d_P: {global.key_d_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"d_R: {global.key_d_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f: {global.key_f}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f_P: {global.key_f_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"f_R: {global.key_f_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"g: {global.key_g}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"g_P: {global.key_g_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"g_R: {global.key_g_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"h: {global.key_h}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"h_P: {global.key_h_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"h_R: {global.key_h_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"j: {global.key_j}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"j_P: {global.key_j_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"j_R: {global.key_j_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"k: {global.key_k}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"k_P: {global.key_k_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"k_R: {global.key_k_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"l: {global.key_l}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"l_P: {global.key_l_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"l_R: {global.key_l_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon: {global.key_semicolon}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon_P: {global.key_semicolon_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon_R: {global.key_semicolon_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote: {global.key_quote}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote_P: {global.key_quote_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote_R: {global.key_quote_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter: {global.key_enter}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter_P: {global.key_enter_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter_R: {global.key_enter_released}");
+	/********************************************************************/_col_i++; _row_i=0;
+	// ESCAPE f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
 
-		/********************************************************************/_col_i++; _row_i=0;
-		// SHIFT z x c v b n m , . /
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape: {KEY_ESCAPE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape_P: {KEY_ESCAPE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"escape_R: {KEY_ESCAPE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1: {KEY_F1}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1_P: {KEY_F1_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f1_R: {KEY_F1_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2: {KEY_F2}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2_P: {KEY_F2_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f2_R: {KEY_F2_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3: {KEY_F3}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3_P: {KEY_F3_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f3_R: {KEY_F3_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4: {KEY_F4}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4_P: {KEY_F4_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f4_R: {KEY_F4_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5: {KEY_F5}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5_P: {KEY_F5_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f5_R: {KEY_F5_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6: {KEY_F6}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6_P: {KEY_F6_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f6_R: {KEY_F6_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7: {KEY_F7}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7_P: {KEY_F7_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f7_R: {KEY_F7_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8: {KEY_F8}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8_P: {KEY_F8_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f8_R: {KEY_F8_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9: {KEY_F9}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9_P: {KEY_F9_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f9_R: {KEY_F9_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10: {KEY_F10}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10_P: {KEY_F10_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f10_R: {KEY_F10_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11: {KEY_F11}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11_P: {KEY_F11_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f11_R: {KEY_F11_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12: {KEY_F12}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12_P: {KEY_F12_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f12_R: {KEY_F12_RELEASED}");
 
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any: {global.key_shift_any}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any_P: {global.key_shift_any_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any_R: {global.key_shift_any_released}");
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift: {global.key_shiftl}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift_P: {global.key_shiftl_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift_R: {global.key_shiftl_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"z: {global.key_z}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"z_P: {global.key_z_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"z_R: {global.key_z_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"x: {global.key_x}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"x_P: {global.key_x_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"x_R: {global.key_x_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"c: {global.key_c}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"c_P: {global.key_c_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"c_R: {global.key_c_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"v: {global.key_v}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"v_P: {global.key_v_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"v_R: {global.key_v_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"b: {global.key_b}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"b_P: {global.key_b_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"b_R: {global.key_b_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"n: {global.key_n}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"n_P: {global.key_n_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"n_R: {global.key_n_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"m: {global.key_m}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"m_P: {global.key_m_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"m_R: {global.key_m_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma: {global.key_comma}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma_P: {global.key_comma_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma_R: {global.key_comma_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"period: {global.key_period}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"period_P: {global.key_period_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"period_R: {global.key_period_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash: {global.key_slash}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash_P: {global.key_slash_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash_R: {global.key_slash_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift: {global.key_shiftr}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift_P: {global.key_shiftr_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift_R: {global.key_shiftr_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// CONTROL WINDOWS ALT SPACEBAR CONTEXT_MENU ALT_R CONTROL_R
-		
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any: {global.key_control_any}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any_P: {global.key_control_any_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any_R: {global.key_control_any_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any: {global.key_alt_any}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any_P: {global.key_alt_any_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any_R: {global.key_alt_any_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol: {global.key_controll}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol_P: {global.key_controll_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol_R: {global.key_controll_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows: {global.key_windows}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows_P: {global.key_windows_pressed}");
-			draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows_R: {global.key_windows_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt: {global.key_altl}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt_P: {global.key_altl_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt_R: {global.key_altl_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"space: {global.key_space}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"space_P: {global.key_space_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"space_R: {global.key_space_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt: {global.key_ralt}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt_P: {global.key_ralt_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt_R: {global.key_ralt_released}");
-		// FUNCTION key is not defined.
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu: {global.key_context_menu}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu_P: {global.key_context_menu_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu_R: {global.key_context_menu_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol: {global.key_controlr}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol_P: {global.key_controlr_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol_R: {global.key_controlr_released}");
+	/********************************************************************/_col_i++; _row_i=0;
+	// ` 1 2 3 4 5 6 7 8 9 0 - =
 
-		/********************************************************************/_col_i++; _row_i=0;
-		// PRINT_SCREEN SCROLL_LOCK PAUSE_BREAK
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote: {KEY_BACKQUOTE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote_P: {KEY_BACKQUOTE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backquote_R: {KEY_BACKQUOTE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"1: {KEY_1}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"1_P: {KEY_1_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"1_R: {KEY_1_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"2: {KEY_2}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"2_P: {KEY_2_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"2_R: {KEY_2_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"3: {KEY_3}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"3_P: {KEY_3_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"3_R: {KEY_3_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"4: {KEY_4}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"4_P: {KEY_4_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"4_R: {KEY_4_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"5: {KEY_5}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"5_P: {KEY_5_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"5_R: {KEY_5_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"6: {KEY_6}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"6_P: {KEY_6_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"6_R: {KEY_6_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"7: {KEY_7}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"7_P: {KEY_7_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"7_R: {KEY_7_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"8: {KEY_8}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"8_P: {KEY_8_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"8_R: {KEY_8_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"9: {KEY_9}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"9_P: {KEY_9_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"9_R: {KEY_9_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0: {KEY_0}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_P: {KEY_0_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_R: {KEY_0_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus: {KEY_MINUS}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_P: {KEY_MINUS_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_R: {KEY_MINUS_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals: {KEY_EQUALS}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_P: {KEY_EQUALS_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_R: {KEY_EQUALS_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace: {KEY_BACKSPACE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace_P: {KEY_BACKSPACE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"backspace_R: {KEY_BACKSPACE_RELEASED}");
+	
+	/********************************************************************/_col_i++; _row_i=0;
+	// tab q w e r t y u i o p [ ] \ 
 
-			draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen: {global.key_printscreen}");
-			draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen_P: {global.key_printscreen_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen_R: {global.key_printscreen_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock: {global.key_scroll_lock}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock_P: {global.key_scroll_lock_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock_R: {global.key_scroll_lock_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause: {global.key_pause}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause_P: {global.key_pause_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause_R: {global.key_pause_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// INSERT HOME PAGE_UP DELETE END PAGE_DOWN
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab: {KEY_TAB}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab_P: {KEY_TAB_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"tab_R: {KEY_TAB_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"q: {KEY_Q}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"q_P: {KEY_Q_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"q_R: {KEY_Q_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"w: {KEY_W}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"w_P: {KEY_W_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"w_R: {KEY_W_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"e: {KEY_E}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"e_P: {KEY_E_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"e_R: {KEY_E_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"r: {KEY_R}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"r_P: {KEY_R_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"r_R: {KEY_R_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"t: {KEY_T}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"t_P: {KEY_T_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"t_R: {KEY_T_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"y: {KEY_Y}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"y_P: {KEY_Y_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"y_R: {KEY_Y_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"u: {KEY_U}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"u_P: {KEY_U_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"u_R: {KEY_U_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"i: {KEY_I}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"i_P: {KEY_I_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"i_R: {KEY_I_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"o: {KEY_O}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"o_P: {KEY_O_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"o_R: {KEY_O_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"p: {KEY_P}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"p_P: {KEY_P_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"p_R: {KEY_P_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket: {KEY_LEFT_BRACKET}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket_P: {KEY_LEFT_BRACKET_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_bracket_R: {KEY_LEFT_BRACKET_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket: {KEY_RIGHT_BRACKET}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket_P: {KEY_RIGHT_BRACKET_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_bracket_R: {KEY_RIGHT_BRACKET_RELEASED}");
+	//draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash: {KEY_BACKSLASH}");
+	//draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash_P: {KEY_BACKSLASH_PRESSED}");
+	//draw_text(_col_i*_col_width, _row_i++*_row_height, $"backslash_R: {KEY_BACKSLASH_RELEASED}");
+	
+	
 
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert: {global.key_insert}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert_P: {global.key_insert_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert_R: {global.key_insert_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"home: {global.key_home}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"home_P: {global.key_home_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"home_R: {global.key_home_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup: {global.key_pageup}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup_P: {global.key_pageup_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup_R: {global.key_pageup_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete: {global.key_delete}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete_P: {global.key_delete_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete_R: {global.key_delete_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"end: {global.key_end}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"end_P: {global.key_end_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"end_R: {global.key_end_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown: {global.key_pagedown}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown_P: {global.key_pagedown_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown_R: {global.key_pagedown_released}");
-		
-		/********************************************************************/_col_i++; _row_i=0;
-		// ARROWS: LEFT RIGHT UP DOWN
+	/********************************************************************/_col_i++; _row_i=0;
+	// CAPS_LOCK a s d f g h j k l ; '
 
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left: {global.key_left}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_P: {global.key_left_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_R: {global.key_left_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right: {global.key_right}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_P: {global.key_right_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_R: {global.key_right_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"up: {global.key_up}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"up_P: {global.key_up_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"up_R: {global.key_up_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"down: {global.key_down}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"down_P: {global.key_down_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"down_R: {global.key_down_released}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock: {KEY_CAPS_LOCK}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock_P: {KEY_CAPS_LOCK_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"caps_lock_R: {KEY_CAPS_LOCK_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"a: {KEY_A}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"a_P: {KEY_A_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"a_R: {KEY_A_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"s: {KEY_S}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"s_P: {KEY_S_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"s_R: {KEY_S_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"d: {KEY_D}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"d_P: {KEY_D_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"d_R: {KEY_D_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f: {KEY_F}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f_P: {KEY_F_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"f_R: {KEY_F_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"g: {KEY_G}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"g_P: {KEY_G_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"g_R: {KEY_G_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"h: {KEY_H}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"h_P: {KEY_H_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"h_R: {KEY_H_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"j: {KEY_J}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"j_P: {KEY_J_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"j_R: {KEY_J_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"k: {KEY_K}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"k_P: {KEY_K_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"k_R: {KEY_K_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"l: {KEY_L}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"l_P: {KEY_L_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"l_R: {KEY_L_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon: {KEY_SEMICOLON}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon_P: {KEY_SEMICOLON_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"semicolon_R: {KEY_SEMICOLON_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote: {KEY_QUOTE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote_P: {KEY_QUOTE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"quote_R: {KEY_QUOTE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter: {KEY_ENTER}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter_P: {KEY_ENTER_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"enter_R: {KEY_ENTER_RELEASED}");
 
-		/********************************************************************/_col_i++; _row_i=0;
-		// NUMLOCK / * - + 7 8 9 4 5 6 1 2 3 0 .
+	/********************************************************************/_col_i++; _row_i=0;
+	// SHIFT z x c v b n m , . /
 
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_S: {global.key_numlock_status}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock: {global.key_numlock}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_P: {global.key_numlock_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_R: {global.key_numlock_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide: {global.key_divide}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide_P: {global.key_divide_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide_R: {global.key_divide_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply: {global.key_multiply}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply_P: {global.key_multiply_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply_R: {global.key_multiply_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract: {global.key_subtract}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract_P: {global.key_subtract_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract_R: {global.key_subtract_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"add: {global.key_add}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"add_P: {global.key_add_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"add_R: {global.key_add_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7: {global.key_numpad7}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7_P: {global.key_numpad7_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7_R: {global.key_numpad7_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8: {global.key_numpad8}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8_P: {global.key_numpad8_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8_R: {global.key_numpad8_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9: {global.key_numpad9}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9_P: {global.key_numpad9_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9_R: {global.key_numpad9_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4: {global.key_numpad4}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4_P: {global.key_numpad4_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4_R: {global.key_numpad4_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5: {global.key_numpad5}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5_P: {global.key_numpad5_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5_R: {global.key_numpad5_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6: {global.key_numpad6}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6_P: {global.key_numpad6_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6_R: {global.key_numpad6_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1: {global.key_numpad1}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1_P: {global.key_numpad1_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1_R: {global.key_numpad1_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2: {global.key_numpad2}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2_P: {global.key_numpad2_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2_R: {global.key_numpad2_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3: {global.key_numpad3}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3_P: {global.key_numpad3_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3_R: {global.key_numpad3_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0: {global.key_numpad0}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0_P: {global.key_numpad0_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0_R: {global.key_numpad0_released}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal: {global.key_decimal}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal_P: {global.key_decimal_pressed}");
-		draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal_R: {global.key_decimal_released}");
-	}
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any: {KEY_SHIFT_ANY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any_P: {KEY_SHIFT_ANY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"shift_any_R: {KEY_SHIFT_ANY_RELEASED}");
+
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift: {KEY_SHIFTL}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift_P: {KEY_SHIFTL_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lshift_R: {KEY_SHIFTL_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"z: {KEY_Z}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"z_P: {KEY_Z_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"z_R: {KEY_Z_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"x: {KEY_X}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"x_P: {KEY_X_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"x_R: {KEY_X_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"c: {KEY_C}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"c_P: {KEY_C_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"c_R: {KEY_C_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"v: {KEY_V}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"v_P: {KEY_V_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"v_R: {KEY_V_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"b: {KEY_B}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"b_P: {KEY_B_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"b_R: {KEY_B_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"n: {KEY_N}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"n_P: {KEY_N_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"n_R: {KEY_N_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"m: {KEY_M}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"m_P: {KEY_M_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"m_R: {KEY_M_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma: {KEY_COMMA}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma_P: {KEY_COMMA_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"comma_R: {KEY_COMMA_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"period: {KEY_PERIOD}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"period_P: {KEY_PERIOD_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"period_R: {KEY_PERIOD_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash: {KEY_SLASH}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash_P: {KEY_SLASH_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"slash_R: {KEY_SLASH_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift: {KEY_SHIFTR}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift_P: {KEY_SHIFTR_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rshift_R: {KEY_SHIFTR_RELEASED}");
+
+	/********************************************************************/_col_i++; _row_i=0;
+	// CONTROL WINDOWS ALT SPACEBAR CONTEXT_MENU ALT_R CONTROL_R
+
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any: {KEY_CONTROL_ANY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any_P: {KEY_CONTROL_ANY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"control_any_R: {KEY_CONTROL_ANY_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any: {KEY_ALT_ANY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any_P: {KEY_ALT_ANY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"alt_any_R: {KEY_ALT_ANY_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol: {KEY_CONTROLL}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol_P: {KEY_CONTROLL_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lcontrol_R: {KEY_CONTROLL_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows: {KEY_WINDOWS}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows_P: {KEY_WINDOWS_PRESSED}");
+		draw_text(_col_i*_col_width, _row_i++*_row_height, $"windows_R: {KEY_WINDOWS_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt: {KEY_ALTL}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt_P: {KEY_ALTL_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lalt_R: {KEY_ALTL_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"space: {KEY_SPACE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"space_P: {KEY_SPACE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"space_R: {KEY_SPACE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt: {KEY_RALT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt_P: {KEY_RALT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"ralt_R: {KEY_RALT_RELEASED}");
+	// FUNCTION key is not defined.
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu: {KEY_CONTEXT_MENU}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu_P: {KEY_CONTEXT_MENU_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"context_menu_R: {KEY_CONTEXT_MENU_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol: {KEY_CONTROLR}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol_P: {KEY_CONTROLR_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"rcontrol_R: {KEY_CONTROLR_RELEASED}");
+
+	/********************************************************************/_col_i++; _row_i=0;
+	// PRINT_SCREEN SCROLL_LOCK PAUSE_BREAK
+
+		draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen: {KEY_PRINTSCREEN}");
+		draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen_P: {KEY_PRINTSCREEN_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"printscreen_R: {KEY_PRINTSCREEN_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock: {KEY_SCROLL_LOCK}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock_P: {KEY_SCROLL_LOCK_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"scroll_lock_R: {KEY_SCROLL_LOCK_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause: {KEY_PAUSE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause_P: {KEY_PAUSE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pause_R: {KEY_PAUSE_RELEASED}");
+
+	/********************************************************************/_col_i++; _row_i=0;
+	// INSERT HOME PAGE_UP DELETE END PAGE_DOWN
+
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert: {KEY_INSERT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert_P: {KEY_INSERT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"insert_R: {KEY_INSERT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"home: {KEY_HOME}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"home_P: {KEY_HOME_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"home_R: {KEY_HOME_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup: {KEY_PAGEUP}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup_P: {KEY_PAGEUP_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pageup_R: {KEY_PAGEUP_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete: {KEY_DELETE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete_P: {KEY_DELETE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"delete_R: {KEY_DELETE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"end: {KEY_END}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"end_P: {KEY_END_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"end_R: {KEY_END_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown: {KEY_PAGEDOWN}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown_P: {KEY_PAGEDOWN_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"pagedown_R: {KEY_PAGEDOWN_RELEASED}");
+
+	/********************************************************************/_col_i++; _row_i=0;
+	// ARROWS: LEFT RIGHT UP DOWN
+
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left: {KEY_LEFT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_P: {KEY_LEFT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left_R: {KEY_LEFT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right: {KEY_RIGHT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_P: {KEY_RIGHT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right_R: {KEY_RIGHT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"up: {KEY_UP}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"up_P: {KEY_UP_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"up_R: {KEY_UP_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"down: {KEY_DOWN}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"down_P: {KEY_DOWN_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"down_R: {KEY_DOWN_RELEASED}");
+
+	/********************************************************************/_col_i++; _row_i=0;
+	// NUMLOCK / * - + 7 8 9 4 5 6 1 2 3 0 .
+
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_S: {KEY_NUMLOCK_STATUS}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock: {KEY_NUMLOCK}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_P: {KEY_NUMLOCK_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numlock_R: {KEY_NUMLOCK_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide: {KEY_DIVIDE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide_P: {KEY_DIVIDE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"divide_R: {KEY_DIVIDE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply: {KEY_MULTIPLY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply_P: {KEY_MULTIPLY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"multiply_R: {KEY_MULTIPLY_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract: {KEY_SUBTRACT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract_P: {KEY_SUBTRACT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"subtract_R: {KEY_SUBTRACT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"add: {KEY_ADD}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"add_P: {KEY_ADD_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"add_R: {KEY_ADD_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7: {KEY_NUMPAD7}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7_P: {KEY_NUMPAD7_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad7_R: {KEY_NUMPAD7_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8: {KEY_NUMPAD8}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8_P: {KEY_NUMPAD8_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad8_R: {KEY_NUMPAD8_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9: {KEY_NUMPAD9}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9_P: {KEY_NUMPAD9_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad9_R: {KEY_NUMPAD9_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4: {KEY_NUMPAD4}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4_P: {KEY_NUMPAD4_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad4_R: {KEY_NUMPAD4_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5: {KEY_NUMPAD5}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5_P: {KEY_NUMPAD5_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad5_R: {KEY_NUMPAD5_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6: {KEY_NUMPAD6}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6_P: {KEY_NUMPAD6_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad6_R: {KEY_NUMPAD6_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1: {KEY_NUMPAD1}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1_P: {KEY_NUMPAD1_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad1_R: {KEY_NUMPAD1_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2: {KEY_NUMPAD2}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2_P: {KEY_NUMPAD2_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad2_R: {KEY_NUMPAD2_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3: {KEY_NUMPAD3}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3_P: {KEY_NUMPAD3_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad3_R: {KEY_NUMPAD3_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0: {KEY_NUMPAD0}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0_P: {KEY_NUMPAD0_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"numpad0_R: {KEY_NUMPAD0_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal: {KEY_DECIMAL}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal_P: {KEY_DECIMAL_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"decimal_R: {KEY_DECIMAL_RELEASED}");
+}
 	
 if (show_mouse_debug) {
 	
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"MOUSE");
 	
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any: {global.m_any}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_P: {global.m_any_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_R: {global.m_any_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none: {global.m_none}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_P: {global.m_none_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_R: {global.m_none_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1: {global.m_left}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1_P: {global.m_left_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1_R: {global.m_left_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2: {global.m_right}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2_P: {global.m_right_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2_R: {global.m_right_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3: {global.m_middle}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3_P: {global.m_middle_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3_R: {global.m_middle_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4: {global.m_side1}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4_P: {global.m_side1_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4_R: {global.m_side1_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5: {global.m_side2}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5_P: {global.m_side2_pressed}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5_R: {global.m_side2_release}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"wheel_up: {global.m_wheel_up}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"wheel_down: {global.m_wheel_down}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any: {MB_ANY}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_P: {MB_ANY_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"any_R: {MB_ANY_RELEASE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none: {MB_NONE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_P: {MB_NONE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"none_R: {MB_NONE_RELEASE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1: {MB_LEFT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1_P: {MB_LEFT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"left-1_R: {MB_LEFT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2: {MB_RIGHT}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2_P: {MB_RIGHT_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"right-2_R: {MB_RIGHT_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3: {MB_MIDDLE}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3_P: {MB_MIDDLE_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"middle-3_R: {MB_MIDDLE_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4: {MB_SIDE1}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4_P: {MB_SIDE1_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side1-4_R: {MB_SIDE1_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5: {MB_SIDE2}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5_P: {MB_SIDE2_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"side2-5_R: {MB_SIDE2_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"wheel_up: {MB_WHEEL_UP}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"wheel_down: {MB_WHEEL_DOWN}");
 	
-	
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"x pos: {mouse_x}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"y pos: {mouse_y}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"last_button: {mouse_lastbutton}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"X: {mouse_x}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"Y: {mouse_y}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lastbutton: {mouse_lastbutton}");
 	
 }
 

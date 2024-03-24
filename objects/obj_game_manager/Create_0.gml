@@ -1,9 +1,9 @@
-// Delta Time Definition. - se actualiza en el step.
+// DELTA TIME DEFINITION
 global.target_delta = 1/60;
 global.actual_delta = delta_time / 1000000;
 global.delta_multiplier = global.actual_delta/global.target_delta;
 
-// All posible game states
+// GAME STATES
 enum GAME_STATES {
 	CREDITS,
 	MAIN_MENU,
@@ -13,9 +13,10 @@ enum GAME_STATES {
 	TUTORIAL
 }
 
-// state of the game definition.
+// STARTING GAME STATE
 global.game_state = GAME_STATES.SPLASH;
 
+// VIEW PORTS SIZES
 view_port_width = view_wport[0];
 view_port_height = view_hport[0];
 

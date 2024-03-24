@@ -20,10 +20,11 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"obj_main_splash","order":1,"path":"objects/obj_main_splash/obj_main_splash.yy",},
     {"name":"obj_input_manager","order":2,"path":"objects/obj_input_manager/obj_input_manager.yy",},
+    {"name":"obj_main_splash","order":1,"path":"objects/obj_main_splash/obj_main_splash.yy",},
+    {"name":"obj_fade","order":3,"path":"objects/obj_fade/obj_fade.yy",},
     {"name":"rm_credits","order":4,"path":"rooms/rm_credits/rm_credits.yy",},
-    {"name":"rm_lobby","order":1,"path":"rooms/rm_lobby/rm_lobby.yy",},
+    {"name":"rm_main_menu_screen","order":1,"path":"rooms/rm_main_menu_screen/rm_main_menu_screen.yy",},
     {"name":"rm_stage_001","order":2,"path":"rooms/rm_stage_001/rm_stage_001.yy",},
     {"name":"rm_tutorial_01","order":3,"path":"rooms/rm_tutorial_01/rm_tutorial_01.yy",},
     {"name":"script_draw_game_state_main_menu","order":1,"path":"scripts/script_draw_game_state_main_menu/script_draw_game_state_main_menu.yy",},
