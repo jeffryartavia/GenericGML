@@ -9,6 +9,7 @@ if (show_game_info) {
     draw_text(_col_i*_col_width, _row_i++*_row_height, $"game_state: {global.game_state}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"current_room: {room_get_name(room)}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"instance_count: {instance_count}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"delta_multiplier: {global.target_delta}");
 }
 
 

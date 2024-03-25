@@ -1,7 +1,0 @@
-Control + Shift + f1	Keyboard Monitor
-Control + Shift + f2	Mouse Monitor
-Control + Shift + f3	Gamepads Monitor
-Control + Shift + f12	Debug Console
-
-
-instance_create_depth(x,y,-999, obj_fade,{siguiente : rm_main_menu_screen});

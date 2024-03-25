@@ -1,0 +1,11 @@
+Control + Shift + f1	Keyboard Monitor
+Control + Shift + f2	Mouse Monitor
+Control + Shift + f3	Gamepads Monitor
+Control + Shift + f4	Game Info Monitor
+Control + Shift + f12	Debug Console
+
+Control + Shift + -		font color black
+Control + Shift + +		font color white
+
+
+instance_create_depth(x,y,-999, obj_fade,{next_room : rm_main_menu_screen});

@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_main_splash",
+  "%Name":"obj_game_brand_image",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_main_splash",
+  "name":"obj_game_brand_image",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"brand logos",
+    "path":"folders/Objects/brand logos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_splash",
-    "path":"sprites/spr_splash/spr_splash.yy",
+    "name":"spr_game_brand_image",
+    "path":"sprites/spr_game_brand_image/spr_game_brand_image.yy",
   },
   "spriteMaskId":null,
   "visible":true,
