@@ -5,14 +5,13 @@ var _row_i = 0;
 var _col_width = 125;
 var _col_i = 0;
 
+draw_set_color(global.debug_text_color);
+
 if (show_game_info) {
     draw_text(_col_i*_col_width, _row_i++*_row_height, $"game_state: {global.game_state}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"current_room: {room_get_name(room)}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"instance_count: {instance_count}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"delta_multiplier: {global.target_delta}");
 }
-
-
 
 if (show_gamepad_debug) {
 	
@@ -30,10 +29,21 @@ if (show_gamepad_debug) {
 			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklv_value: {global.joy_sticklv_value[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_moving: {global.joy_stickl_moving[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_direction: {global.joy_stickl_direction[_i]}");
+
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl: {global.joy_stickl_padl[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl_P: {global.joy_stickl_padl_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl_R: {global.joy_stickl_padl_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr: {global.joy_stickl_padr[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr_P: {global.joy_stickl_padr_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr_R: {global.joy_stickl_padr_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu: {global.joy_stickl_padu[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu_P: {global.joy_stickl_padu_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu_R: {global.joy_stickl_padu_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd: {global.joy_stickl_padd[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd_P: {global.joy_stickl_padd_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd_R: {global.joy_stickl_padd_released[_i]}");
+
+
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl: {global.joy_stickl[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_P: {global.joy_stickl_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_R: {global.joy_stickl_released[_i]}");
@@ -42,10 +52,20 @@ if (show_gamepad_debug) {
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickrv_value: {global.joy_stickrv_value[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_active: {global.joy_stickr_active[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_direction: {global.joy_stickr_direction[_i]}");
+			
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl: {global.joy_stickr_padl[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl_P: {global.joy_stickr_padl_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl_R: {global.joy_stickr_padl_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr: {global.joy_stickr_padr[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr_P: {global.joy_stickr_padr_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr_R: {global.joy_stickr_padr_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu: {global.joy_stickr_padu[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu_P: {global.joy_stickr_padu_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu_R: {global.joy_stickr_padu_released[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd: {global.joy_stickr_padd[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd_P: {global.joy_stickr_padd_pressed[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd_R: {global.joy_stickr_padd_released[_i]}");
+			
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr: {global.joy_stickr[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_P: {global.joy_stickr_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_R: {global.joy_stickr_released[_i]}");
@@ -523,4 +543,3 @@ if (show_mouse_debug) {
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"lastbutton: {mouse_lastbutton}");
 	
 }
-

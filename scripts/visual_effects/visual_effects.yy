@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"script_visual_effects",
+  "%Name":"visual_effects",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"script_visual_effects",
+  "name":"visual_effects",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_input_manager_shortkeys",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_input_manager_shortkeys",
+  "parent":{
+    "name":"inputs_manager",
+    "path":"folders/Scripts/inputs_manager.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -7,7 +7,7 @@ function step_game_state_tutorial(){
 
 		if (KEY_ENTER) {
 			global.game_state = GAME_STATES.PLAYING;
-			instance_create_depth(x,y,-999, obj_fade_out_room,{next_room_param : rm_stage_001});
+			instance_create_depth(x,y, DEPTH_OBJ_FADE_OUT_ROOM, obj_fade_out_room,{next_room_param : rm_stage_001});
 		}
 		
 	}

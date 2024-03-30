@@ -5,10 +5,28 @@ show_gamepad_debug = false;
 show_debug_console = false;
 show_game_info = false;
 
-//Gamepad global Configuration.
+global.debug_text_color = c_white;
 global.gamepad_dead_zone = 0.05;
 
-#region KEYBOARD
+joy_stickl_padl_pressed = false;
+joy_stickl_padl_released = false;
+joy_stickl_padr_pressed = false;
+joy_stickl_padr_released = false;
+joy_stickl_padu_pressed = false;
+joy_stickl_padu_released = false;
+joy_stickl_padd_pressed = false;
+joy_stickl_padd_released = false;
+
+joy_stickr_padl_pressed = false;
+joy_stickr_padl_released = false;
+joy_stickr_padr_pressed = false;
+joy_stickr_padr_released = false;
+joy_stickr_padu_pressed = false;
+joy_stickr_padu_released = false;
+joy_stickr_padd_pressed = false;
+joy_stickr_padd_released = false;
+
+#region KEYBOARD DEFINITIONS
 	#macro KEY_ANY keyboard_check(vk_anykey)
 	#macro KEY_ANY_PRESSED keyboard_check_pressed(vk_anykey)
 	#macro KEY_ANY_RELEASED keyboard_check_released(vk_anykey)
@@ -376,7 +394,7 @@ global.gamepad_dead_zone = 0.05;
 	
 #endregion
 
-#region MOUSE
+#region MOUSE DEFINITIONS
 	#macro MB_ANY mouse_check_button(mb_any)
 	#macro MB_ANY_PRESSED mouse_check_button_pressed(mb_any)
 	#macro MB_ANY_RELEASE mouse_check_button_released(mb_any)
