@@ -3,7 +3,7 @@
 this_alpha = clamp(this_alpha + (fade_time * 0.02)*global.delta_multiplier, 0, 1) ;
 
 if (this_alpha == 1){
-	room_goto(next_room_param);
+	room_goto(_next_room);
 	fade_time = -1;
 }
 

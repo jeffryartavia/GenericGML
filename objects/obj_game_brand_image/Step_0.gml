@@ -1,0 +1,1 @@
+fade_in_image_alpha();

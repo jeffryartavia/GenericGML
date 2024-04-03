@@ -1,30 +1,116 @@
 ////all_debug_monitors
-show_keyboard_debug = false;
-show_mouse_debug = false;
-show_gamepad_debug = false;
-show_debug_console = false;
-show_game_info = false;
+show_keyboard_debug = false;	//Ctrl + Shift + f1
+show_mouse_debug = false;		//Ctrl + Shift + f2
+show_gamepad_debug = false;		//Ctrl + Shift + f3
+show_debug_console = false;		//Ctrl + Shift + f12
 
-global.debug_text_color = c_white;
+global.debug_text_color = c_gray; //Change Font Color Ctrl + Shisft +  -:black, /:gray, +:white
 global.gamepad_dead_zone = 0.05;
 
-joy_stickl_padl_pressed = false;
-joy_stickl_padl_released = false;
-joy_stickl_padr_pressed = false;
-joy_stickl_padr_released = false;
-joy_stickl_padu_pressed = false;
-joy_stickl_padu_released = false;
-joy_stickl_padd_pressed = false;
-joy_stickl_padd_released = false;
+#region GAMEPAD DEFINITIONS
+joy_stickl_padl_pressed_flag = false;
+joy_stickl_padl_released_flag = false;
+joy_stickl_padr_pressed_flag = false;
+joy_stickl_padr_released_flag = false;
+joy_stickl_padu_pressed_flag = false;
+joy_stickl_padu_released_flag = false;
+joy_stickl_padd_pressed_flag = false;
+joy_stickl_padd_released_flag = false;
 
-joy_stickr_padl_pressed = false;
-joy_stickr_padl_released = false;
-joy_stickr_padr_pressed = false;
-joy_stickr_padr_released = false;
-joy_stickr_padu_pressed = false;
-joy_stickr_padu_released = false;
-joy_stickr_padd_pressed = false;
-joy_stickr_padd_released = false;
+joy_stickr_padl_pressed_flag = false;
+joy_stickr_padl_released_flag = false;
+joy_stickr_padr_pressed_flag = false;
+joy_stickr_padr_released_flag = false;
+joy_stickr_padu_pressed_flag = false;
+joy_stickr_padu_released_flag = false;
+joy_stickr_padd_pressed_flag = false;
+joy_stickr_padd_released_flag = false;
+
+
+global.joy_sticklh_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_sticklv_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_moving = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_direction = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickrh_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickrv_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_active = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_direction = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_stickr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face1 = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face1_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face1_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face2 = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face2_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face2_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face3 = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face3_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face3_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face4 = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face4_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_face4_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderl = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderlb_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderlb = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderlb_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderlb_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderr = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderrb_value = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderrb = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderrb_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_shoulderrb_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_select = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_select_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_select_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_start = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_start_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
+global.joy_start_released = [0,1,2,3,4,5,6,7,8,9,10,11];
+
+#endregion
 
 #region KEYBOARD DEFINITIONS
 	#macro KEY_ANY keyboard_check(vk_anykey)
@@ -113,12 +199,12 @@ joy_stickr_padd_released = false;
 	#macro KEY_0  keyboard_check(ord("0"))
 	#macro KEY_0_PRESSED keyboard_check_pressed(ord("0"))
 	#macro KEY_0_RELEASED keyboard_check_released(ord("0"))
-	#macro KEY_MINUS  keyboard_check(189)// -
-	#macro KEY_MINUS_PRESSED keyboard_check_pressed(189)// -
-	#macro KEY_MINUS_RELEASED keyboard_check_released(189)// -
-	#macro KEY_EQUALS  keyboard_check(187)// 
-	#macro KEY_EQUALS_PRESSED keyboard_check_pressed(187)// 
-	#macro KEY_EQUALS_RELEASED keyboard_check_released(187)// 
+	#macro KEY_DASH  keyboard_check(189)// -
+	#macro KEY_DASH_PRESSED keyboard_check_pressed(189)// -
+	#macro KEY_DASH_RELEASED keyboard_check_released(189)// -
+	#macro KEY_EQUALS  keyboard_check(187)// =
+	#macro KEY_EQUALS_PRESSED keyboard_check_pressed(187)// =
+	#macro KEY_EQUALS_RELEASED keyboard_check_released(187)// =
 	#macro KEY_BACKSPACE  keyboard_check(vk_backspace)
 	#macro KEY_BACKSPACE_PRESSED keyboard_check_pressed(vk_backspace)
 	#macro KEY_BACKSPACE_RELEASED keyboard_check_released(vk_backspace)
@@ -419,3 +505,13 @@ joy_stickr_padd_released = false;
 	#macro MB_WHEEL_UP mouse_wheel_up()
 	#macro MB_WHEEL_DOWN mouse_wheel_down()
 #endregion
+
+function hide_all_debug_monitors(){
+	show_keyboard_debug = false;
+	show_mouse_debug = false;
+	show_gamepad_debug = false;
+	show_debug_console = false;
+}
+
+
+fnt_inputs = font_add("Calibri.TTF", 11, false, false, 0, 0);

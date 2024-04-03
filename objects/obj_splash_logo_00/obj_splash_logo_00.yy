@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_splash_logo1",
+  "%Name":"obj_splash_logo_00",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_splash_logo1",
+  "name":"obj_splash_logo_00",
   "overriddenProperties":[],
   "parent":{
     "name":"brand logos",

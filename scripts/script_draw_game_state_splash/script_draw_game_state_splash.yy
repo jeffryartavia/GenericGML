@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"script_draw_game_state_splash",
   "parent":{
-    "name":"draw_game_state",
-    "path":"folders/Scripts/draw_game_state.yy",
+    "name":"draw_game_states",
+    "path":"folders/Scripts/draw_game_states.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

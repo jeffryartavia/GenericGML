@@ -11,4 +11,3 @@ switch(global.game_state){
 	case GAME_STATES.CREDITS: step_game_state_credits(); break;
 }
 
-

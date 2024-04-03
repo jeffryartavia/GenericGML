@@ -1,17 +1,15 @@
-draw_set_font(fnt_century_gothic8);
 
-var _row_height = 11;
+draw_set_font(fnt_inputs);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+
+
+var _row_height = 12.8;
 var _row_i = 0;
-var _col_width = 125;
+var _col_width = 135;
 var _col_i = 0;
 
 draw_set_color(global.debug_text_color);
-
-if (show_game_info) {
-    draw_text(_col_i*_col_width, _row_i++*_row_height, $"game_state: {global.game_state}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"current_room: {room_get_name(room)}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"instance_count: {instance_count}");
-}
 
 if (show_gamepad_debug) {
 	
@@ -23,7 +21,7 @@ if (show_gamepad_debug) {
 		if gamepad_is_connected(_i) {
 	
 	
-			draw_text(_i*_col_width, _row_i++*_row_height, $"GAMEPAD#: {_i} of {_gp_num}");	
+			draw_text(_i*_col_width, _row_i++*_row_height, $"GAMEPAD: {_i} ({gamepad_get_description(_i)})");	
 
 			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklh_value: {global.joy_sticklh_value[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklv_value: {global.joy_sticklv_value[_i]}");
@@ -128,10 +126,6 @@ if (show_gamepad_debug) {
 			draw_text(_i*_col_width, _row_i++*_row_height, $"start_P: {global.joy_start_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"start_R: {global.joy_start_released[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"Description: {gamepad_get_description(_i)}");
-			
-			
-
 			_i++; _row_i=0;
 
 		}
@@ -228,9 +222,9 @@ if (show_keyboard_debug) {
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0: {KEY_0}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_P: {KEY_0_PRESSED}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"0_R: {KEY_0_RELEASED}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus: {KEY_MINUS}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_P: {KEY_MINUS_PRESSED}");
-	draw_text(_col_i*_col_width, _row_i++*_row_height, $"minus_R: {KEY_MINUS_RELEASED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"dash: {KEY_DASH}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"dash_P: {KEY_DASH_PRESSED}");
+	draw_text(_col_i*_col_width, _row_i++*_row_height, $"dash_R: {KEY_DASH_RELEASED}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals: {KEY_EQUALS}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_P: {KEY_EQUALS_PRESSED}");
 	draw_text(_col_i*_col_width, _row_i++*_row_height, $"equals_R: {KEY_EQUALS_RELEASED}");
