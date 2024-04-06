@@ -1,7 +1,5 @@
 function step_game_state_playing(){
-	if (!instance_exists(obj_fade_out_room)) {
-    
-		//todo:
-	
+	if (!instance_exists(obj_transition_room)) {
+		
 	}
 }

@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_game_brand_image",
+  "%Name":"obj_game_logo",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_game_brand_image",
+  "name":"obj_game_logo",
   "overriddenProperties":[],
   "parent":{
     "name":"brand logos",

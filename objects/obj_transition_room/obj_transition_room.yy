@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_fade_out_room",
+  "%Name":"obj_transition_room",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_fade_out_room",
+  "name":"obj_transition_room",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
