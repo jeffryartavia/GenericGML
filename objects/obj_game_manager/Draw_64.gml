@@ -1,7 +1,7 @@
-draw_text(100,100,room_get_name(room));
+//draw_text(100,100,room_get_name(room));
 
-draw_text(100,120,instance_count);
-draw_text(100,140,instance_exists(obj_transition_room));
+//draw_text(100,120,instance_count);
+//draw_text(100,140,instance_exists(obj_transition_room));
 
 
 switch(global.game_state){

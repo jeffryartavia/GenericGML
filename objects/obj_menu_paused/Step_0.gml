@@ -25,7 +25,7 @@ if (current_button > arr_buttons_length - 1) current_button = 0;
 
 if (global.joy_face1_pressed[0] || KEY_ENTER_PRESSED || (collision_point(mouse_x, mouse_y, obj_option_menu_paused, false,true) && MB_LEFT_PRESSED ) ) {
 	
-	audio_play_sound(snd_option_selected, 1, false);
+	audio_play_sound(snd_option_select, 1, false);
 	
 	switch(current_button) {
 		case 0:

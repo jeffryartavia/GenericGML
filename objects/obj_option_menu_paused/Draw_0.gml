@@ -11,7 +11,7 @@ image_yscale = (string_height(button_text) + padding_vertical) / sprite_get_heig
 if (parent_menu.current_button == button_index) {
 	draw_set_color(make_color_rgb(251, 183, 40));
 	if (!ya_sono) {
-	    audio_play_sound(snd_option_menu, 1, false);
+	    audio_play_sound(snd_option_choose, 1, false);
 		ya_sono = true;
 	}
 } else {
