@@ -49,6 +49,7 @@
     {"name":"script_step_game_state_tutorial","order":5,"path":"scripts/script_step_game_state_tutorial/script_step_game_state_tutorial.yy",},
     {"name":"visual_effects","order":9,"path":"scripts/visual_effects/visual_effects.yy",},
     {"name":"snd_option_select","order":1,"path":"sounds/snd_option_select/snd_option_select.yy",},
+    {"name":"snd_option_play","order":2,"path":"sounds/snd_option_play/snd_option_play.yy",},
     {"name":"spr_bg_stage1","order":1,"path":"sprites/spr_bg_stage1/spr_bg_stage1.yy",},
     {"name":"spr_game_brand_image","order":2,"path":"sprites/spr_game_brand_image/spr_game_brand_image.yy",},
     {"name":"spr_main_menu_bg","order":3,"path":"sprites/spr_main_menu_bg/spr_main_menu_bg.yy",},

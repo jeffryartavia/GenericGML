@@ -25,16 +25,16 @@ if (current_button > arr_buttons_length - 1) current_button = 0;
 
 if (global.joy_face1_pressed[0] || KEY_ENTER_PRESSED || (collision_point(mouse_x, mouse_y, obj_option_menu_title, false,true) && MB_LEFT_PRESSED ) ) {
 	
-	audio_play_sound(snd_option_select, 1, false);
-	
 	switch(current_button) {
 		case 0:
+			audio_play_sound(snd_option_play, 1, false);
 			global.game_state = GAME_STATES.TUTORIAL;
 			instance_create_depth(x,y, DEPTH_OBJ_FADE_OUT_ROOM, obj_transition_room,{_next_room : rm_tutorial_01});
 			//audio_play_sound(snd_option_menu, 1, false);
 			break;
 			
 		case 1:
+			audio_play_sound(snd_option_select, 1, false);
 			global.game_state = GAME_STATES.CREDITS;
 			instance_create_depth(x,y, DEPTH_OBJ_FADE_OUT_ROOM, obj_transition_room,{_next_room : rm_credits});
 			//audio_play_sound(snd_option_menu, 1, false);
