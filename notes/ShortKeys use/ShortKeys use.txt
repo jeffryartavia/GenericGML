@@ -8,4 +8,4 @@ Control + Shift + -		font color black
 Control + Shift + +		font color white
 
 
-instance_create_depth(x,y,-999, obj_fade,{next_room : rm_main_menu_screen});
+instance_create_depth(x,y,-999, obj_fade,{_next_room : rm_main_menu_screen});

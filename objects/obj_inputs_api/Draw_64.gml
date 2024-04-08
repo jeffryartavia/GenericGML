@@ -1,12 +1,17 @@
+if (show_keyboard_debug || show_mouse_debug || show_gamepad_debug) {
+    draw_set_alpha(.6);
+	draw_set_color(c_black);
+	draw_rectangle(0,0,room_width, room_height,false);
+	draw_set_alpha(1);
+}
 
 draw_set_font(fnt_inputs);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
-
-var _row_height = 12.8;
+var _row_height = 9;
 var _row_i = 0;
-var _col_width = 135;
+var _col_width = 120;
 var _col_i = 0;
 
 draw_set_color(global.debug_text_color);

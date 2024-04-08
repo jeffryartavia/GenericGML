@@ -1,5 +1,5 @@
 //Un rectangulo negro transparente con this_alpha 0 empezara a cubrir la pantalla cada vez con mas opasitdad.
-//al ser persistente en el next_room room se destruira
+//al ser persistente en el _next_room room se destruira
 this_alpha = clamp(this_alpha + (fade_time * 0.02)*global.delta_multiplier, 0, 1) ;
 
 if (this_alpha == 1){

@@ -9,6 +9,6 @@ function constants(){
 
 #macro DEPTH_OBJ_FADE_OUT_ROOM -1
 
-#macro CAMERA0_WIDTH_CENTER camera_get_view_width(view_camera[0]) / 2
-#macro CAMERA0_HEIGHT_CENTER camera_get_view_height(view_camera[0]) / 2
+#macro CENTER_HORIZONTAL_CAMERA0 camera_get_view_width(view_camera[0]) / 2
+#macro CENTER_VERTICAL_CAMERA0 camera_get_view_height(view_camera[0]) / 2
 }

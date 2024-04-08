@@ -1,3 +1,9 @@
+draw_text(100,100,room_get_name(room));
+
+draw_text(100,120,instance_count);
+draw_text(100,140,instance_exists(obj_transition_room));
+
+
 switch(global.game_state){
 	case GAME_STATES.SPLASH: draw_game_state_splash(); break;
 	case GAME_STATES.MAIN_MENU: draw_game_state_main_menu(); break;

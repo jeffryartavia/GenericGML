@@ -4,7 +4,7 @@ show_mouse_debug = false;		//Ctrl + Shift + f2
 show_gamepad_debug = false;		//Ctrl + Shift + f3
 show_debug_console = false;		//Ctrl + Shift + f12
 
-global.debug_text_color = c_gray; //Change Font Color Ctrl + Shisft +  -:black, /:gray, +:white
+global.debug_text_color = c_white; //Change Font Color Ctrl + Shisft +  -:black, /:gray, +:white
 global.gamepad_dead_zone = 0.05;
 
 #region GAMEPAD DEFINITIONS
@@ -514,4 +514,7 @@ function hide_all_debug_monitors(){
 }
 
 
-fnt_inputs = font_add("Calibri.TTF", 11, false, false, 0, 0);
+fnt_inputs = font_add("Arial.TTF", 8, false, false, 0, 0);
+
+
+
