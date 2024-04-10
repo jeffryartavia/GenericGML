@@ -2,7 +2,7 @@
 
 //draw_text(100,120,instance_count);
 //draw_text(100,140,instance_exists(obj_transition_room));
-
+draw_self();
 
 switch(global.game_state){
 	case GAME_STATES.SPLASH: draw_game_state_splash(); break;

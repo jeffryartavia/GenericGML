@@ -4,7 +4,7 @@
 
 hover = false; //MOUSE IN / OUT
 
-fnt_menu_option = font_add("Arial.TTF", 64, false, false, 0, 0);//Arial, Verdana, Corbel, Georgia, Tahoma, Candara
+fnt_menu_option = font_add("Arial.TTF", 50, false, false, 0, 0);//Arial, Verdana, Corbel, Georgia, Tahoma, Candara
 padding_horizontal = font_get_size(fnt_menu_option)*2;
 padding_vertical = font_get_size(fnt_menu_option)/3;
 font_enable_sdf(fnt_menu_option, true);
@@ -25,3 +25,4 @@ font_enable_effects(fnt_menu_option, true, {
 });
 
 ya_sono = true;
+

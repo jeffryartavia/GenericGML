@@ -8,9 +8,9 @@ arr_buttons_length = array_length(arr_button_states);
 
 current_button = 0;
 
-option_gap_vertical = 0;
+var _gap = 0;
 for (var _i = 0; _i < arr_buttons_length; ++_i) {
-    instance_create_layer(x, y+option_gap_vertical, "Instances", obj_option_menu_title, {button_text: arr_button_states[_i], button_index: _i, parent_menu: object_index});
-	option_gap_vertical += 128;
+    instance_create_layer(x, y+_gap, "Instances", obj_option_menu_title, {button_text: arr_button_states[_i], button_index: _i, parent_menu: object_index});
+	_gap += 125;
 }
 

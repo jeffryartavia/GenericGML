@@ -23,6 +23,14 @@ if (current_button > arr_buttons_length - 1) current_button = 0;
 
 //if (menu_index != last_selected) audio_play_sound(soundMenuSwitch, 1, false);
 
+if (global.joy_face2_pressed[0] || KEY_ESCAPE_PRESSED) {
+    if (instance_exists(obj_option_menu_paused)) {
+		instance_destroy(obj_option_menu_paused);
+	}
+			
+	instance_destroy();
+}
+
 if (global.joy_face1_pressed[0] || KEY_ENTER_PRESSED || (collision_point(mouse_x, mouse_y, obj_option_menu_paused, false,true) && MB_LEFT_PRESSED ) ) {
 	
 	switch(current_button) {

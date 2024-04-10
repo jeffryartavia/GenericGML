@@ -9,7 +9,7 @@ image_yscale = (string_height(button_text) + padding_vertical) / sprite_get_heig
 
 //MOUSE IN/OUT
 if (parent_menu.current_button == button_index) {
-	draw_set_color(make_color_rgb(251, 183, 40));
+	draw_set_color(make_color_rgb(0, 155, 255));//rgb(251, 183, 40));
 	if (!ya_sono) {
 	    audio_play_sound(snd_option_choose, 1, false);
 		ya_sono = true;

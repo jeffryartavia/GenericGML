@@ -5,7 +5,7 @@ show_gamepad_debug = false;		//Ctrl + Shift + f3
 show_debug_console = false;		//Ctrl + Shift + f12
 
 global.debug_text_color = c_white; //Change Font Color Ctrl + Shisft +  -:black, /:gray, +:white
-global.gamepad_dead_zone = 0.05;
+global.gamepad_dead_zone = 0.10;
 
 #region GAMEPAD DEFINITIONS
 joy_stickl_padl_pressed_flag = false;
