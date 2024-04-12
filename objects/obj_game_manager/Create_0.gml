@@ -18,3 +18,7 @@ constants();
 
 // STARTING GAME STATE
 global.game_state = GAME_STATES.SPLASH;
+
+
+global.fnt_menu_option = font_add("Arial.TTF", 50, false, false, 0, 0);//Arial, Verdana, Corbel, Georgia, Tahoma, Candara
+global.fnt_credits = font_add("Arial.TTF", 40, true, true, 32, 128);

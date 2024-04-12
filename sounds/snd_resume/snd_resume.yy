@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"snd_option_choose",
+  "%Name":"snd_resume",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,7 +10,7 @@
   "compression":0,
   "conversionMode":0,
   "duration":1.880816,
-  "name":"snd_option_choose",
+  "name":"snd_resume",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_option_choose.mp3",
+  "soundFile":"snd_resume.mp3",
   "type":0,
   "volume":1.0,
 }

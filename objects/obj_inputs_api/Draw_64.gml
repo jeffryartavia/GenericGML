@@ -17,125 +17,140 @@ var _col_i = 0;
 draw_set_color(global.debug_text_color);
 
 if (show_gamepad_debug) {
-	
-	
+			
 	var _gp_num = gamepad_get_device_count(); //siempre es 12
 	
 	for (var _i = 0; _i < _gp_num; _i++;){
 	
 		if gamepad_is_connected(_i) {
-	
-	
+		
+			gamepad_set_axis_deadzone(_i, global.gamepad_dead_zone);
+			gamepad_set_button_threshold(_i, global.gamepad_button_threshold);
+					
+					
+					
+					
+					
 			draw_text(_i*_col_width, _row_i++*_row_height, $"GAMEPAD: {_i} ({gamepad_get_description(_i)})");	
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklh_value: {global.joy_sticklh_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklv_value: {global.joy_sticklv_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_moving: {global.joy_stickl_moving[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_direction: {global.joy_stickl_direction[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklh_value: {JOY_STICKLH_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"sticklv_value: {JOY_STICKLV_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_moving: {JOY_STICKL_MOVING[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_direction: {JOY_STICKL_DIRECTION[_i]}");
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl: {global.joy_stickl_padl[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl: {JOY_STICKL_PADL[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl_P: {global.joy_stickl_padl_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padl_R: {global.joy_stickl_padl_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr: {global.joy_stickl_padr[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr: {JOY_STICKL_PADR[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr_P: {global.joy_stickl_padr_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padr_R: {global.joy_stickl_padr_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu: {global.joy_stickl_padu[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu: {JOY_STICKL_PADU[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu_P: {global.joy_stickl_padu_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padu_R: {global.joy_stickl_padu_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd: {global.joy_stickl_padd[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd: {JOY_STICKL_PADD[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd_P: {global.joy_stickl_padd_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_padd_R: {global.joy_stickl_padd_released[_i]}");
 
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl: {global.joy_stickl[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_P: {global.joy_stickl_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_R: {global.joy_stickl_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl: {JOY_STICKL[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_P: {JOY_STICKL_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickl_R: {JOY_STICKL_RELEASED[_i]}");
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickrh_value: {global.joy_stickrh_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickrv_value: {global.joy_stickrv_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_active: {global.joy_stickr_active[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_direction: {global.joy_stickr_direction[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickrh_value: {JOY_STICKRH_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickrv_value: {JOY_STICKRV_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_moving: {JOY_STICKR_MOVING[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_direction: {JOY_STICKR_DIRECTION[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl: {global.joy_stickr_padl[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl: {JOY_STICKR_PADL[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl_P: {global.joy_stickr_padl_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padl_R: {global.joy_stickr_padl_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr: {global.joy_stickr_padr[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr: {JOY_STICKR_PADR[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr_P: {global.joy_stickr_padr_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padr_R: {global.joy_stickr_padr_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu: {global.joy_stickr_padu[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu: {JOY_STICKR_PADU[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu_P: {global.joy_stickr_padu_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padu_R: {global.joy_stickr_padu_released[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd: {global.joy_stickr_padd[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd: {JOY_STICKR_PADD[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd_P: {global.joy_stickr_padd_pressed[_i]}");
 			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_padd_R: {global.joy_stickr_padd_released[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr: {global.joy_stickr[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_P: {global.joy_stickr_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_R: {global.joy_stickr_released[_i]}");
+			
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr: {JOY_STICKR[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_P: {JOY_STICKR_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"stickr_R: {JOY_STICKR_RELEASED[_i]}");
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padl: {global.joy_padl[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padl_P: {global.joy_padl_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padl_R: {global.joy_padl_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padl: {JOY_PADL[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padl_P: {JOY_PADL_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padl_R: {JOY_PADL_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padr: {global.joy_padr[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padr_P: {global.joy_padr_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padr_R: {global.joy_padr_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padr: {JOY_PADR[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padr_P: {JOY_PADR_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padr_R: {JOY_PADR_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padu: {global.joy_padu[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padu_P: {global.joy_padu_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padu_R: {global.joy_padu_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padu: {JOY_PADU[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padu_P: {JOY_PADU_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padu_R: {JOY_PADU_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padd: {global.joy_padd[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padd_P: {global.joy_padd_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"padd_R: {global.joy_padd_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padd: {JOY_PADD[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padd_P: {JOY_PADD_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"padd_R: {JOY_PADD_RELEASED[_i]}");
 
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face1: {global.joy_face1[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face1_P: {global.joy_face1_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face1_R: {global.joy_face1_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face1: {JOY_FACE1[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face1_P: {JOY_FACE1_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face1_R: {JOY_FACE1_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face2: {global.joy_face2[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face2_P: {global.joy_face2_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face2_R: {global.joy_face2_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face2: {JOY_FACE2[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face2_P: {JOY_FACE2_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face2_R: {JOY_FACE2_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face3: {global.joy_face3[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face3_P: {global.joy_face3_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face3_R: {global.joy_face3_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face3: {JOY_FACE3[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face3_P: {JOY_FACE3_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face3_R: {JOY_FACE3_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face4: {global.joy_face4[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face4_P: {global.joy_face4_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"face4_R: {global.joy_face4_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face4: {JOY_FACE4[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face4_P: {JOY_FACE4_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"face4_R: {JOY_FACE4_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl: {global.joy_shoulderl[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl_P: {global.joy_shoulderl_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl_R: {global.joy_shoulderl_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl: {JOY_SHOULDERL[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl_P: {JOY_SHOULDERL_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderl_R: {JOY_SHOULDERL_RELEASED[_i]}");
+					
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_value: {JOY_SHOULDERLB_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb: {JOY_SHOULDERLB[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_P: {JOY_SHOULDERLB_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_R: {JOY_SHOULDERLB_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_value: {global.joy_shoulderlb_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb: {global.joy_shoulderlb[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_P: {global.joy_shoulderlb_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderlb_R: {global.joy_shoulderlb_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr: {JOY_SHOULDERR[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr_P: {JOY_SHOULDERR_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr_R: {JOY_SHOULDERR_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr: {global.joy_shoulderr[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr_P: {global.joy_shoulderr_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderr_R: {global.joy_shoulderr_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_value: {JOY_SHOULDERRB_VALUE[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb: {JOY_SHOULDERRB[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_P: {JOY_SHOULDERRB_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_R: {JOY_SHOULDERRB_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_value: {global.joy_shoulderrb_value[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb: {global.joy_shoulderrb[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_P: {global.joy_shoulderrb_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"shoulderrb_R: {global.joy_shoulderrb_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"select: {JOY_SELECT[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"select_P: {JOY_SELECT_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"select_R: {JOY_SELECT_RELEASED[_i]}");
 			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"select: {global.joy_select[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"select_P: {global.joy_select_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"select_R: {global.joy_select_released[_i]}");
-			
-			draw_text(_i*_col_width, _row_i++*_row_height, $"anjoy_starty: {global.joy_start[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"start_P: {global.joy_start_pressed[_i]}");
-			draw_text(_i*_col_width, _row_i++*_row_height, $"start_R: {global.joy_start_released[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"start: {JOY_START[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"start_P: {JOY_START_PRESSED[_i]}");
+			draw_text(_i*_col_width, _row_i++*_row_height, $"start_R: {JOY_START_RELEASED[_i]}");
 			
 			_i++; _row_i=0;
-
+					
 		}
 	}
+
 }
+
 
 if (show_keyboard_debug) {
 		

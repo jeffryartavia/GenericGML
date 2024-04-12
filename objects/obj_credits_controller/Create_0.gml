@@ -12,10 +12,9 @@ credits_text =
 "                            Diego Vásquez" + _gap +
 "Patrocinador: ...";
 
-fnt_credits = font_add("Arial.TTF", 40, true, true, 32, 128);
-font_enable_sdf(fnt_credits, true);
+font_enable_sdf(global.fnt_credits, true);
 
-font_enable_effects(fnt_credits, true, {
+font_enable_effects(global.fnt_credits, true, {
     dropShadowEnable: true,
     dropShadowSoftness: 30,
     dropShadowOffsetX: 5,

@@ -5,111 +5,168 @@ show_gamepad_debug = false;		//Ctrl + Shift + f3
 show_debug_console = false;		//Ctrl + Shift + f12
 
 global.debug_text_color = c_white; //Change Font Color Ctrl + Shisft +  -:black, /:gray, +:white
-global.gamepad_dead_zone = 0.10;
+global.gamepad_dead_zone = 0.10; //Valor minimo para los sticks. evitar el drifting.
+global.gamepad_button_threshold = 0.01; //Reduce el recorrido de los shoulderb casi a zero.
+
 
 #region GAMEPAD DEFINITIONS
-joy_stickl_padl_pressed_flag = false;
-joy_stickl_padl_released_flag = false;
-joy_stickl_padr_pressed_flag = false;
-joy_stickl_padr_released_flag = false;
-joy_stickl_padu_pressed_flag = false;
-joy_stickl_padu_released_flag = false;
-joy_stickl_padd_pressed_flag = false;
-joy_stickl_padd_released_flag = false;
+joy_stickl_padl_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padl_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padr_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padr_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padu_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padu_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padd_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickl_padd_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
 
-joy_stickr_padl_pressed_flag = false;
-joy_stickr_padl_released_flag = false;
-joy_stickr_padr_pressed_flag = false;
-joy_stickr_padr_released_flag = false;
-joy_stickr_padu_pressed_flag = false;
-joy_stickr_padu_released_flag = false;
-joy_stickr_padd_pressed_flag = false;
-joy_stickr_padd_released_flag = false;
+joy_stickr_padl_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padl_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padr_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padr_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padu_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padu_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padd_pressed_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
+joy_stickr_padd_released_flag = [ false, false, false, false, false, false, false, false, false, false, false, false ];
 
 
-global.joy_sticklh_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_sticklv_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_moving = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_direction = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickl_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickl_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickl_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickl_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickl_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickl_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickl_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickl_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickrh_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickrv_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_active = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_direction = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
+
+
+
+
 global.joy_stickr_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickr_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickr_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickr_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickr_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickr_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
+
 global.joy_stickr_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
 global.joy_stickr_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_stickr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padl = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padr = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padu = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padu_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padu_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padd = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padd_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_padd_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face1 = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face1_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face1_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face2 = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face2_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face2_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face3 = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face3_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face3_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face4 = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face4_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_face4_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderl = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderl_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderl_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderlb_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderlb = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderlb_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderlb_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderr = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderr_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderr_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderrb_value = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderrb = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderrb_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_shoulderrb_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_select = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_select_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_select_released = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_start = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_start_pressed = [0,1,2,3,4,5,6,7,8,9,10,11];
-global.joy_start_released = [0,1,2,3,4,5,6,7,8,9,10,11];
 
+#endregion
+
+
+
+
+
+
+#region GAMEPAD 2
+	
+	#macro JOY_STICKLH_VALUE [ gamepad_axis_value(0, gp_axislh), gamepad_axis_value(1, gp_axislh), gamepad_axis_value(2, gp_axislh), gamepad_axis_value(3, gp_axislh), gamepad_axis_value(4, gp_axislh), gamepad_axis_value(5, gp_axislh), gamepad_axis_value(6, gp_axislh), gamepad_axis_value(7, gp_axislh), gamepad_axis_value(8, gp_axislh), gamepad_axis_value(9, gp_axislh), gamepad_axis_value(10, gp_axislh), gamepad_axis_value(11, gp_axislh) ]
+	#macro JOY_STICKLV_VALUE [ gamepad_axis_value(0, gp_axislv), gamepad_axis_value(1, gp_axislv), gamepad_axis_value(2, gp_axislv), gamepad_axis_value(3, gp_axislv), gamepad_axis_value(4, gp_axislv), gamepad_axis_value(5, gp_axislv), gamepad_axis_value(6, gp_axislv), gamepad_axis_value(7, gp_axislv), gamepad_axis_value(8, gp_axislv), gamepad_axis_value(9, gp_axislv), gamepad_axis_value(10, gp_axislv), gamepad_axis_value(11, gp_axislv) ]
+	#macro JOY_STICKL_MOVING [ (JOY_STICKLH_VALUE[0] != 0 || JOY_STICKLV_VALUE[0] != 0), (JOY_STICKLH_VALUE[1] != 0 || JOY_STICKLV_VALUE[1] != 0), (JOY_STICKLH_VALUE[2] != 0 || JOY_STICKLV_VALUE[2] != 0), (JOY_STICKLH_VALUE[3] != 0 || JOY_STICKLV_VALUE[3] != 0), (JOY_STICKLH_VALUE[4] != 0 || JOY_STICKLV_VALUE[4] != 0), (JOY_STICKLH_VALUE[5] != 0 || JOY_STICKLV_VALUE[5] != 0), (JOY_STICKLH_VALUE[6] != 0 || JOY_STICKLV_VALUE[6] != 0), (JOY_STICKLH_VALUE[7] != 0 || JOY_STICKLV_VALUE[7] != 0), (JOY_STICKLH_VALUE[8] != 0 || JOY_STICKLV_VALUE[8] != 0), (JOY_STICKLH_VALUE[9] != 0 || JOY_STICKLV_VALUE[9] != 0), (JOY_STICKLH_VALUE[10] != 0 || JOY_STICKLV_VALUE[10] != 0), (JOY_STICKLH_VALUE[11] != 0 || JOY_STICKLV_VALUE[11] != 0) ]
+	#macro JOY_STICKL_DIRECTION [ point_direction(0, 0, JOY_STICKLH_VALUE[0], JOY_STICKLV_VALUE[0]), point_direction(0, 0, JOY_STICKLH_VALUE[1], JOY_STICKLV_VALUE[1]), point_direction(0, 0, JOY_STICKLH_VALUE[2], JOY_STICKLV_VALUE[2]), point_direction(0, 0, JOY_STICKLH_VALUE[3], JOY_STICKLV_VALUE[3]), point_direction(0, 0, JOY_STICKLH_VALUE[4], JOY_STICKLV_VALUE[4]), point_direction(0, 0, JOY_STICKLH_VALUE[5], JOY_STICKLV_VALUE[5]), point_direction(0, 0, JOY_STICKLH_VALUE[6], JOY_STICKLV_VALUE[6]), point_direction(0, 0, JOY_STICKLH_VALUE[7], JOY_STICKLV_VALUE[7]), point_direction(0, 0, JOY_STICKLH_VALUE[8], JOY_STICKLV_VALUE[8]), point_direction(0, 0, JOY_STICKLH_VALUE[9], JOY_STICKLV_VALUE[9]), point_direction(0, 0, JOY_STICKLH_VALUE[10], JOY_STICKLV_VALUE[10]), point_direction(0, 0, JOY_STICKLH_VALUE[11], JOY_STICKLV_VALUE[11]) ]
+	#macro JOY_STICKL [ gamepad_button_check(0, gp_stickl), gamepad_button_check(1, gp_stickl), gamepad_button_check(2, gp_stickl), gamepad_button_check(3, gp_stickl), gamepad_button_check(4, gp_stickl), gamepad_button_check(5, gp_stickl), gamepad_button_check(6, gp_stickl), gamepad_button_check(7, gp_stickl), gamepad_button_check(8, gp_stickl), gamepad_button_check(9, gp_stickl), gamepad_button_check(10, gp_stickl), gamepad_button_check(11, gp_stickl) ]
+	#macro JOY_STICKL_PRESSED [ gamepad_button_check_pressed(0, gp_stickl), gamepad_button_check_pressed(1, gp_stickl), gamepad_button_check_pressed(2, gp_stickl), gamepad_button_check_pressed(3, gp_stickl), gamepad_button_check_pressed(4, gp_stickl), gamepad_button_check_pressed(5, gp_stickl), gamepad_button_check_pressed(6, gp_stickl), gamepad_button_check_pressed(7, gp_stickl), gamepad_button_check_pressed(8, gp_stickl), gamepad_button_check_pressed(9, gp_stickl), gamepad_button_check_pressed(10, gp_stickl), gamepad_button_check_pressed(11, gp_stickl) ]
+	#macro JOY_STICKL_RELEASED [ gamepad_button_check_released(0, gp_stickl), gamepad_button_check_released(1, gp_stickl), gamepad_button_check_released(2, gp_stickl), gamepad_button_check_released(3, gp_stickl), gamepad_button_check_released(4, gp_stickl), gamepad_button_check_released(5, gp_stickl), gamepad_button_check_released(6, gp_stickl), gamepad_button_check_released(7, gp_stickl), gamepad_button_check_released(8, gp_stickl), gamepad_button_check_released(9, gp_stickl), gamepad_button_check_released(10, gp_stickl), gamepad_button_check_released(11, gp_stickl) ]
+
+	#macro JOY_STICKL_PADL [ sign( JOY_STICKLH_VALUE[0] ) == -1, sign( JOY_STICKLH_VALUE[1] ) == -1, sign( JOY_STICKLH_VALUE[2] ) == -1, sign( JOY_STICKLH_VALUE[3] ) == -1, sign( JOY_STICKLH_VALUE[4] ) == -1, sign( JOY_STICKLH_VALUE[5] ) == -1, sign( JOY_STICKLH_VALUE[6] ) == -1, sign( JOY_STICKLH_VALUE[7] ) == -1, sign( JOY_STICKLH_VALUE[8] ) == -1, sign( JOY_STICKLH_VALUE[9] ) == -1, sign( JOY_STICKLH_VALUE[10] ) == -1, sign( JOY_STICKLH_VALUE[11] ) == -1 ]
+	#macro JOY_STICKL_PADR [ sign( JOY_STICKLH_VALUE[0] ) == 1, sign( JOY_STICKLH_VALUE[1] ) == 1, sign( JOY_STICKLH_VALUE[2] ) == 1, sign( JOY_STICKLH_VALUE[3] ) == 1, sign( JOY_STICKLH_VALUE[4] ) == 1, sign( JOY_STICKLH_VALUE[5] ) == 1, sign( JOY_STICKLH_VALUE[6] ) == 1, sign( JOY_STICKLH_VALUE[7] ) == 1, sign( JOY_STICKLH_VALUE[8] ) == 1, sign( JOY_STICKLH_VALUE[9] ) == 1, sign( JOY_STICKLH_VALUE[10] ) == 1, sign( JOY_STICKLH_VALUE[11] ) == 1 ]
+	#macro JOY_STICKL_PADU [ sign( JOY_STICKLV_VALUE[0] ) == -1, sign( JOY_STICKLV_VALUE[1] ) == -1, sign( JOY_STICKLV_VALUE[2] ) == -1, sign( JOY_STICKLV_VALUE[3] ) == -1, sign( JOY_STICKLV_VALUE[4] ) == -1, sign( JOY_STICKLV_VALUE[5] ) == -1, sign( JOY_STICKLV_VALUE[6] ) == -1, sign( JOY_STICKLV_VALUE[7] ) == -1, sign( JOY_STICKLV_VALUE[8] ) == -1, sign( JOY_STICKLV_VALUE[9] ) == -1, sign( JOY_STICKLV_VALUE[10] ) == -1, sign( JOY_STICKLV_VALUE[11] ) == -1 ]
+	#macro JOY_STICKL_PADD [ sign( JOY_STICKLV_VALUE[0] ) == 1, sign( JOY_STICKLV_VALUE[1] ) == 1, sign( JOY_STICKLV_VALUE[2] ) == 1, sign( JOY_STICKLV_VALUE[3] ) == 1, sign( JOY_STICKLV_VALUE[4] ) == 1, sign( JOY_STICKLV_VALUE[5] ) == 1, sign( JOY_STICKLV_VALUE[6] ) == 1, sign( JOY_STICKLV_VALUE[7] ) == 1, sign( JOY_STICKLV_VALUE[8] ) == 1, sign( JOY_STICKLV_VALUE[9] ) == 1, sign( JOY_STICKLV_VALUE[10] ) == 1, sign( JOY_STICKLV_VALUE[11] ) == 1 ]
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#macro JOY_STICKRH_VALUE [ gamepad_axis_value(0, gp_axisrh), gamepad_axis_value(1, gp_axisrh), gamepad_axis_value(2, gp_axisrh), gamepad_axis_value(3, gp_axisrh), gamepad_axis_value(4, gp_axisrh), gamepad_axis_value(5, gp_axisrh), gamepad_axis_value(6, gp_axisrh), gamepad_axis_value(7, gp_axisrh), gamepad_axis_value(8, gp_axisrh), gamepad_axis_value(9, gp_axisrh), gamepad_axis_value(10, gp_axisrh), gamepad_axis_value(11, gp_axisrh) ]
+	#macro JOY_STICKRV_VALUE [ gamepad_axis_value(0, gp_axisrv), gamepad_axis_value(1, gp_axisrv), gamepad_axis_value(2, gp_axisrv), gamepad_axis_value(3, gp_axisrv), gamepad_axis_value(4, gp_axisrv), gamepad_axis_value(5, gp_axisrv), gamepad_axis_value(6, gp_axisrv), gamepad_axis_value(7, gp_axisrv), gamepad_axis_value(8, gp_axisrv), gamepad_axis_value(9, gp_axisrv), gamepad_axis_value(10, gp_axisrv), gamepad_axis_value(11, gp_axisrv) ]
+	#macro JOY_STICKR_MOVING [ (JOY_STICKRH_VALUE[0] != 0 || JOY_STICKRV_VALUE[0] != 0), (JOY_STICKRH_VALUE[1] != 0 || JOY_STICKRV_VALUE[1] != 0), (JOY_STICKRH_VALUE[2] != 0 || JOY_STICKRV_VALUE[2] != 0), (JOY_STICKRH_VALUE[3] != 0 || JOY_STICKRV_VALUE[3] != 0), (JOY_STICKRH_VALUE[4] != 0 || JOY_STICKRV_VALUE[4] != 0), (JOY_STICKRH_VALUE[5] != 0 || JOY_STICKRV_VALUE[5] != 0), (JOY_STICKRH_VALUE[6] != 0 || JOY_STICKRV_VALUE[6] != 0), (JOY_STICKRH_VALUE[7] != 0 || JOY_STICKRV_VALUE[7] != 0), (JOY_STICKRH_VALUE[8] != 0 || JOY_STICKRV_VALUE[8] != 0), (JOY_STICKRH_VALUE[9] != 0 || JOY_STICKRV_VALUE[9] != 0), (JOY_STICKRH_VALUE[10] != 0 || JOY_STICKRV_VALUE[10] != 0), (JOY_STICKRH_VALUE[11] != 0 || JOY_STICKRV_VALUE[11] != 0) ]
+	#macro JOY_STICKR_DIRECTION [ point_direction(0, 0, JOY_STICKRH_VALUE[0], JOY_STICKRV_VALUE[0]), point_direction(0, 0, JOY_STICKRH_VALUE[1], JOY_STICKRV_VALUE[1]), point_direction(0, 0, JOY_STICKRH_VALUE[2], JOY_STICKRV_VALUE[2]), point_direction(0, 0, JOY_STICKRH_VALUE[3], JOY_STICKRV_VALUE[3]), point_direction(0, 0, JOY_STICKRH_VALUE[4], JOY_STICKRV_VALUE[4]), point_direction(0, 0, JOY_STICKRH_VALUE[5], JOY_STICKRV_VALUE[5]), point_direction(0, 0, JOY_STICKRH_VALUE[6], JOY_STICKRV_VALUE[6]), point_direction(0, 0, JOY_STICKRH_VALUE[7], JOY_STICKRV_VALUE[7]), point_direction(0, 0, JOY_STICKRH_VALUE[8], JOY_STICKRV_VALUE[8]), point_direction(0, 0, JOY_STICKRH_VALUE[9], JOY_STICKRV_VALUE[9]), point_direction(0, 0, JOY_STICKRH_VALUE[10], JOY_STICKRV_VALUE[10]), point_direction(0, 0, JOY_STICKRH_VALUE[11], JOY_STICKRV_VALUE[11]) ]
+	#macro JOY_STICKR [ gamepad_button_check(0, gp_stickr), gamepad_button_check(1, gp_stickr), gamepad_button_check(2, gp_stickr), gamepad_button_check(3, gp_stickr), gamepad_button_check(4, gp_stickr), gamepad_button_check(5, gp_stickr), gamepad_button_check(6, gp_stickr), gamepad_button_check(7, gp_stickr), gamepad_button_check(8, gp_stickr), gamepad_button_check(9, gp_stickr), gamepad_button_check(10, gp_stickr), gamepad_button_check(11, gp_stickr) ]
+	#macro JOY_STICKR_PRESSED [ gamepad_button_check_pressed(0, gp_stickr), gamepad_button_check_pressed(1, gp_stickr), gamepad_button_check_pressed(2, gp_stickr), gamepad_button_check_pressed(3, gp_stickr), gamepad_button_check_pressed(4, gp_stickr), gamepad_button_check_pressed(5, gp_stickr), gamepad_button_check_pressed(6, gp_stickr), gamepad_button_check_pressed(7, gp_stickr), gamepad_button_check_pressed(8, gp_stickr), gamepad_button_check_pressed(9, gp_stickr), gamepad_button_check_pressed(10, gp_stickr), gamepad_button_check_pressed(11, gp_stickr) ]
+	#macro JOY_STICKR_RELEASED [ gamepad_button_check_released(0, gp_stickr), gamepad_button_check_released(1, gp_stickr), gamepad_button_check_released(2, gp_stickr), gamepad_button_check_released(3, gp_stickr), gamepad_button_check_released(4, gp_stickr), gamepad_button_check_released(5, gp_stickr), gamepad_button_check_released(6, gp_stickr), gamepad_button_check_released(7, gp_stickr), gamepad_button_check_released(8, gp_stickr), gamepad_button_check_released(9, gp_stickr), gamepad_button_check_released(10, gp_stickr), gamepad_button_check_released(11, gp_stickr) ]
+
+	#macro JOY_STICKR_PADL [ sign( JOY_STICKRH_VALUE[0] ) == -1, sign( JOY_STICKRH_VALUE[1] ) == -1, sign( JOY_STICKRH_VALUE[2] ) == -1, sign( JOY_STICKRH_VALUE[3] ) == -1, sign( JOY_STICKRH_VALUE[4] ) == -1, sign( JOY_STICKRH_VALUE[5] ) == -1, sign( JOY_STICKRH_VALUE[6] ) == -1, sign( JOY_STICKRH_VALUE[7] ) == -1, sign( JOY_STICKRH_VALUE[8] ) == -1, sign( JOY_STICKRH_VALUE[9] ) == -1, sign( JOY_STICKRH_VALUE[10] ) == -1, sign( JOY_STICKRH_VALUE[11] ) == -1 ]
+	#macro JOY_STICKR_PADR [ sign( JOY_STICKRH_VALUE[0] ) == 1, sign( JOY_STICKRH_VALUE[1] ) == 1, sign( JOY_STICKRH_VALUE[2] ) == 1, sign( JOY_STICKRH_VALUE[3] ) == 1, sign( JOY_STICKRH_VALUE[4] ) == 1, sign( JOY_STICKRH_VALUE[5] ) == 1, sign( JOY_STICKRH_VALUE[6] ) == 1, sign( JOY_STICKRH_VALUE[7] ) == 1, sign( JOY_STICKRH_VALUE[8] ) == 1, sign( JOY_STICKRH_VALUE[9] ) == 1, sign( JOY_STICKRH_VALUE[10] ) == 1, sign( JOY_STICKRH_VALUE[11] ) == 1 ]
+	#macro JOY_STICKR_PADU [ sign( JOY_STICKRV_VALUE[0] ) == -1, sign( JOY_STICKRV_VALUE[1] ) == -1, sign( JOY_STICKRV_VALUE[2] ) == -1, sign( JOY_STICKRV_VALUE[3] ) == -1, sign( JOY_STICKRV_VALUE[4] ) == -1, sign( JOY_STICKRV_VALUE[5] ) == -1, sign( JOY_STICKRV_VALUE[6] ) == -1, sign( JOY_STICKRV_VALUE[7] ) == -1, sign( JOY_STICKRV_VALUE[8] ) == -1, sign( JOY_STICKRV_VALUE[9] ) == -1, sign( JOY_STICKRV_VALUE[10] ) == -1, sign( JOY_STICKRV_VALUE[11] ) == -1 ]
+	#macro JOY_STICKR_PADD [ sign( JOY_STICKRV_VALUE[0] ) == 1, sign( JOY_STICKRV_VALUE[1] ) == 1, sign( JOY_STICKRV_VALUE[2] ) == 1, sign( JOY_STICKRV_VALUE[3] ) == 1, sign( JOY_STICKRV_VALUE[4] ) == 1, sign( JOY_STICKRV_VALUE[5] ) == 1, sign( JOY_STICKRV_VALUE[6] ) == 1, sign( JOY_STICKRV_VALUE[7] ) == 1, sign( JOY_STICKRV_VALUE[8] ) == 1, sign( JOY_STICKRV_VALUE[9] ) == 1, sign( JOY_STICKRV_VALUE[10] ) == 1, sign( JOY_STICKRV_VALUE[11] ) == 1 ]
+	
+
+
+
+
+
+
+
+
+	#macro JOY_PADL [ gamepad_button_check(0, gp_padl), gamepad_button_check(1, gp_padl), gamepad_button_check(2, gp_padl), gamepad_button_check(3, gp_padl), gamepad_button_check(4, gp_padl), gamepad_button_check(5, gp_padl), gamepad_button_check(6, gp_padl), gamepad_button_check(7, gp_padl), gamepad_button_check(8, gp_padl), gamepad_button_check(9, gp_padl), gamepad_button_check(10, gp_padl), gamepad_button_check(11, gp_padl) ]
+	#macro JOY_PADL_PRESSED [ gamepad_button_check_pressed(0, gp_padl), gamepad_button_check_pressed(1, gp_padl), gamepad_button_check_pressed(2, gp_padl), gamepad_button_check_pressed(3, gp_padl), gamepad_button_check_pressed(4, gp_padl), gamepad_button_check_pressed(5, gp_padl), gamepad_button_check_pressed(6, gp_padl), gamepad_button_check_pressed(7, gp_padl), gamepad_button_check_pressed(8, gp_padl), gamepad_button_check_pressed(9, gp_padl), gamepad_button_check_pressed(10, gp_padl), gamepad_button_check_pressed(11, gp_padl) ]
+	#macro JOY_PADL_RELEASED [ gamepad_button_check_released(0, gp_padl), gamepad_button_check_released(1, gp_padl), gamepad_button_check_released(2, gp_padl), gamepad_button_check_released(3, gp_padl), gamepad_button_check_released(4, gp_padl), gamepad_button_check_released(5, gp_padl), gamepad_button_check_released(6, gp_padl), gamepad_button_check_released(7, gp_padl), gamepad_button_check_released(8, gp_padl), gamepad_button_check_released(9, gp_padl), gamepad_button_check_released(10, gp_padl), gamepad_button_check_released(11, gp_padl) ]
+			
+	#macro JOY_PADR [ gamepad_button_check(0, gp_padr), gamepad_button_check(1, gp_padr), gamepad_button_check(2, gp_padr), gamepad_button_check(3, gp_padr), gamepad_button_check(4, gp_padr), gamepad_button_check(5, gp_padr), gamepad_button_check(6, gp_padr), gamepad_button_check(7, gp_padr), gamepad_button_check(8, gp_padr), gamepad_button_check(9, gp_padr), gamepad_button_check(10, gp_padr), gamepad_button_check(11, gp_padr) ]
+	#macro JOY_PADR_PRESSED [ gamepad_button_check_pressed(0, gp_padr), gamepad_button_check_pressed(1, gp_padr), gamepad_button_check_pressed(2, gp_padr), gamepad_button_check_pressed(3, gp_padr), gamepad_button_check_pressed(4, gp_padr), gamepad_button_check_pressed(5, gp_padr), gamepad_button_check_pressed(6, gp_padr), gamepad_button_check_pressed(7, gp_padr), gamepad_button_check_pressed(8, gp_padr), gamepad_button_check_pressed(9, gp_padr), gamepad_button_check_pressed(10, gp_padr), gamepad_button_check_pressed(11, gp_padr) ]
+	#macro JOY_PADR_RELEASED [ gamepad_button_check_released(0, gp_padr), gamepad_button_check_released(1, gp_padr), gamepad_button_check_released(2, gp_padr), gamepad_button_check_released(3, gp_padr), gamepad_button_check_released(4, gp_padr), gamepad_button_check_released(5, gp_padr), gamepad_button_check_released(6, gp_padr), gamepad_button_check_released(7, gp_padr), gamepad_button_check_released(8, gp_padr), gamepad_button_check_released(9, gp_padr), gamepad_button_check_released(10, gp_padr), gamepad_button_check_released(11, gp_padr) ]
+			
+	#macro JOY_PADU [ gamepad_button_check(0, gp_padu), gamepad_button_check(1, gp_padu), gamepad_button_check(2, gp_padu), gamepad_button_check(3, gp_padu), gamepad_button_check(4, gp_padu), gamepad_button_check(5, gp_padu), gamepad_button_check(6, gp_padu), gamepad_button_check(7, gp_padu), gamepad_button_check(8, gp_padu), gamepad_button_check(9, gp_padu), gamepad_button_check(10, gp_padu), gamepad_button_check(11, gp_padu) ]
+	#macro JOY_PADU_PRESSED [ gamepad_button_check_pressed(0, gp_padu), gamepad_button_check_pressed(1, gp_padu), gamepad_button_check_pressed(2, gp_padu), gamepad_button_check_pressed(3, gp_padu), gamepad_button_check_pressed(4, gp_padu), gamepad_button_check_pressed(5, gp_padu), gamepad_button_check_pressed(6, gp_padu), gamepad_button_check_pressed(7, gp_padu), gamepad_button_check_pressed(8, gp_padu), gamepad_button_check_pressed(9, gp_padu), gamepad_button_check_pressed(10, gp_padu), gamepad_button_check_pressed(11, gp_padu) ]
+	#macro JOY_PADU_RELEASED [ gamepad_button_check_released(0, gp_padu), gamepad_button_check_released(1, gp_padu), gamepad_button_check_released(2, gp_padu), gamepad_button_check_released(3, gp_padu), gamepad_button_check_released(4, gp_padu), gamepad_button_check_released(5, gp_padu), gamepad_button_check_released(6, gp_padu), gamepad_button_check_released(7, gp_padu), gamepad_button_check_released(8, gp_padu), gamepad_button_check_released(9, gp_padu), gamepad_button_check_released(10, gp_padu), gamepad_button_check_released(11, gp_padu) ]
+			
+	#macro JOY_PADD [ gamepad_button_check(0, gp_padd), gamepad_button_check(1, gp_padd), gamepad_button_check(2, gp_padd), gamepad_button_check(3, gp_padd), gamepad_button_check(4, gp_padd), gamepad_button_check(5, gp_padd), gamepad_button_check(6, gp_padd), gamepad_button_check(7, gp_padd), gamepad_button_check(8, gp_padd), gamepad_button_check(9, gp_padd), gamepad_button_check(10, gp_padd), gamepad_button_check(11, gp_padd) ]
+	#macro JOY_PADD_PRESSED [ gamepad_button_check_pressed(0, gp_padd), gamepad_button_check_pressed(1, gp_padd), gamepad_button_check_pressed(2, gp_padd), gamepad_button_check_pressed(3, gp_padd), gamepad_button_check_pressed(4, gp_padd), gamepad_button_check_pressed(5, gp_padd), gamepad_button_check_pressed(6, gp_padd), gamepad_button_check_pressed(7, gp_padd), gamepad_button_check_pressed(8, gp_padd), gamepad_button_check_pressed(9, gp_padd), gamepad_button_check_pressed(10, gp_padd), gamepad_button_check_pressed(11, gp_padd) ]
+	#macro JOY_PADD_RELEASED [ gamepad_button_check_released(0, gp_padd), gamepad_button_check_released(1, gp_padd), gamepad_button_check_released(2, gp_padd), gamepad_button_check_released(3, gp_padd), gamepad_button_check_released(4, gp_padd), gamepad_button_check_released(5, gp_padd), gamepad_button_check_released(6, gp_padd), gamepad_button_check_released(7, gp_padd), gamepad_button_check_released(8, gp_padd), gamepad_button_check_released(9, gp_padd), gamepad_button_check_released(10, gp_padd), gamepad_button_check_released(11, gp_padd) ]
+
+	#macro JOY_FACE1 [ gamepad_button_check(0, gp_face1), gamepad_button_check(1, gp_face1), gamepad_button_check(2, gp_face1), gamepad_button_check(3, gp_face1), gamepad_button_check(4, gp_face1), gamepad_button_check(5, gp_face1), gamepad_button_check(6, gp_face1), gamepad_button_check(7, gp_face1), gamepad_button_check(8, gp_face1), gamepad_button_check(9, gp_face1), gamepad_button_check(10, gp_face1), gamepad_button_check(11, gp_face1) ]
+	#macro JOY_FACE1_PRESSED [ gamepad_button_check_pressed(0, gp_face1), gamepad_button_check_pressed(1, gp_face1), gamepad_button_check_pressed(2, gp_face1), gamepad_button_check_pressed(3, gp_face1), gamepad_button_check_pressed(4, gp_face1), gamepad_button_check_pressed(5, gp_face1), gamepad_button_check_pressed(6, gp_face1), gamepad_button_check_pressed(7, gp_face1), gamepad_button_check_pressed(8, gp_face1), gamepad_button_check_pressed(9, gp_face1), gamepad_button_check_pressed(10, gp_face1), gamepad_button_check_pressed(11, gp_face1) ]
+	#macro JOY_FACE1_RELEASED [ gamepad_button_check_released(0, gp_face1), gamepad_button_check_released(1, gp_face1), gamepad_button_check_released(2, gp_face1), gamepad_button_check_released(3, gp_face1), gamepad_button_check_released(4, gp_face1), gamepad_button_check_released(5, gp_face1), gamepad_button_check_released(6, gp_face1), gamepad_button_check_released(7, gp_face1), gamepad_button_check_released(8, gp_face1), gamepad_button_check_released(9, gp_face1), gamepad_button_check_released(10, gp_face1), gamepad_button_check_released(11, gp_face1) ]
+			
+	#macro JOY_FACE2 [ gamepad_button_check(0, gp_face2), gamepad_button_check(1, gp_face2), gamepad_button_check(2, gp_face2), gamepad_button_check(3, gp_face2), gamepad_button_check(4, gp_face2), gamepad_button_check(5, gp_face2), gamepad_button_check(6, gp_face2), gamepad_button_check(7, gp_face2), gamepad_button_check(8, gp_face2), gamepad_button_check(9, gp_face2), gamepad_button_check(10, gp_face2), gamepad_button_check(11, gp_face2) ]
+	#macro JOY_FACE2_PRESSED [ gamepad_button_check_pressed(0, gp_face2), gamepad_button_check_pressed(1, gp_face2), gamepad_button_check_pressed(2, gp_face2), gamepad_button_check_pressed(3, gp_face2), gamepad_button_check_pressed(4, gp_face2), gamepad_button_check_pressed(5, gp_face2), gamepad_button_check_pressed(6, gp_face2), gamepad_button_check_pressed(7, gp_face2), gamepad_button_check_pressed(8, gp_face2), gamepad_button_check_pressed(9, gp_face2), gamepad_button_check_pressed(10, gp_face2), gamepad_button_check_pressed(11, gp_face2) ]
+	#macro JOY_FACE2_RELEASED [ gamepad_button_check_released(0, gp_face2), gamepad_button_check_released(1, gp_face2), gamepad_button_check_released(2, gp_face2), gamepad_button_check_released(3, gp_face2), gamepad_button_check_released(4, gp_face2), gamepad_button_check_released(5, gp_face2), gamepad_button_check_released(6, gp_face2), gamepad_button_check_released(7, gp_face2), gamepad_button_check_released(8, gp_face2), gamepad_button_check_released(9, gp_face2), gamepad_button_check_released(10, gp_face2), gamepad_button_check_released(11, gp_face2) ]
+			
+	#macro JOY_FACE3 [ gamepad_button_check(0, gp_face3), gamepad_button_check(1, gp_face3), gamepad_button_check(2, gp_face3), gamepad_button_check(3, gp_face3), gamepad_button_check(4, gp_face3), gamepad_button_check(5, gp_face3), gamepad_button_check(6, gp_face3), gamepad_button_check(7, gp_face3), gamepad_button_check(8, gp_face3), gamepad_button_check(9, gp_face3), gamepad_button_check(10, gp_face3), gamepad_button_check(11, gp_face3) ]
+	#macro JOY_FACE3_PRESSED [ gamepad_button_check_pressed(0, gp_face3), gamepad_button_check_pressed(1, gp_face3), gamepad_button_check_pressed(2, gp_face3), gamepad_button_check_pressed(3, gp_face3), gamepad_button_check_pressed(4, gp_face3), gamepad_button_check_pressed(5, gp_face3), gamepad_button_check_pressed(6, gp_face3), gamepad_button_check_pressed(7, gp_face3), gamepad_button_check_pressed(8, gp_face3), gamepad_button_check_pressed(9, gp_face3), gamepad_button_check_pressed(10, gp_face3), gamepad_button_check_pressed(11, gp_face3) ]
+	#macro JOY_FACE3_RELEASED [ gamepad_button_check_released(0, gp_face3), gamepad_button_check_released(1, gp_face3), gamepad_button_check_released(2, gp_face3), gamepad_button_check_released(3, gp_face3), gamepad_button_check_released(4, gp_face3), gamepad_button_check_released(5, gp_face3), gamepad_button_check_released(6, gp_face3), gamepad_button_check_released(7, gp_face3), gamepad_button_check_released(8, gp_face3), gamepad_button_check_released(9, gp_face3), gamepad_button_check_released(10, gp_face3), gamepad_button_check_released(11, gp_face3) ]
+			
+	#macro JOY_FACE4 [ gamepad_button_check(0, gp_face4), gamepad_button_check(1, gp_face4), gamepad_button_check(2, gp_face4), gamepad_button_check(3, gp_face4), gamepad_button_check(4, gp_face4), gamepad_button_check(5, gp_face4), gamepad_button_check(6, gp_face4), gamepad_button_check(7, gp_face4), gamepad_button_check(8, gp_face4), gamepad_button_check(9, gp_face4), gamepad_button_check(10, gp_face4), gamepad_button_check(11, gp_face4) ]
+	#macro JOY_FACE4_PRESSED [ gamepad_button_check_pressed(0, gp_face4), gamepad_button_check_pressed(1, gp_face4), gamepad_button_check_pressed(2, gp_face4), gamepad_button_check_pressed(3, gp_face4), gamepad_button_check_pressed(4, gp_face4), gamepad_button_check_pressed(5, gp_face4), gamepad_button_check_pressed(6, gp_face4), gamepad_button_check_pressed(7, gp_face4), gamepad_button_check_pressed(8, gp_face4), gamepad_button_check_pressed(9, gp_face4), gamepad_button_check_pressed(10, gp_face4), gamepad_button_check_pressed(11, gp_face4) ]
+	#macro JOY_FACE4_RELEASED [ gamepad_button_check_released(0, gp_face4), gamepad_button_check_released(1, gp_face4), gamepad_button_check_released(2, gp_face4), gamepad_button_check_released(3, gp_face4), gamepad_button_check_released(4, gp_face4), gamepad_button_check_released(5, gp_face4), gamepad_button_check_released(6, gp_face4), gamepad_button_check_released(7, gp_face4), gamepad_button_check_released(8, gp_face4), gamepad_button_check_released(9, gp_face4), gamepad_button_check_released(10, gp_face4), gamepad_button_check_released(11, gp_face4) ]
+			
+	#macro JOY_SHOULDERL [ gamepad_button_check(0, gp_shoulderl), gamepad_button_check(1, gp_shoulderl), gamepad_button_check(2, gp_shoulderl), gamepad_button_check(3, gp_shoulderl), gamepad_button_check(4, gp_shoulderl), gamepad_button_check(5, gp_shoulderl), gamepad_button_check(6, gp_shoulderl), gamepad_button_check(7, gp_shoulderl), gamepad_button_check(8, gp_shoulderl), gamepad_button_check(9, gp_shoulderl), gamepad_button_check(10, gp_shoulderl), gamepad_button_check(11, gp_shoulderl) ]
+	#macro JOY_SHOULDERL_PRESSED [ gamepad_button_check_pressed(0, gp_shoulderl), gamepad_button_check_pressed(1, gp_shoulderl), gamepad_button_check_pressed(2, gp_shoulderl), gamepad_button_check_pressed(3, gp_shoulderl), gamepad_button_check_pressed(4, gp_shoulderl), gamepad_button_check_pressed(5, gp_shoulderl), gamepad_button_check_pressed(6, gp_shoulderl), gamepad_button_check_pressed(7, gp_shoulderl), gamepad_button_check_pressed(8, gp_shoulderl), gamepad_button_check_pressed(9, gp_shoulderl), gamepad_button_check_pressed(10, gp_shoulderl), gamepad_button_check_pressed(11, gp_shoulderl) ]
+	#macro JOY_SHOULDERL_RELEASED [ gamepad_button_check_released(0, gp_shoulderl), gamepad_button_check_released(1, gp_shoulderl), gamepad_button_check_released(2, gp_shoulderl), gamepad_button_check_released(3, gp_shoulderl), gamepad_button_check_released(4, gp_shoulderl), gamepad_button_check_released(5, gp_shoulderl), gamepad_button_check_released(6, gp_shoulderl), gamepad_button_check_released(7, gp_shoulderl), gamepad_button_check_released(8, gp_shoulderl), gamepad_button_check_released(9, gp_shoulderl), gamepad_button_check_released(10, gp_shoulderl), gamepad_button_check_released(11, gp_shoulderl) ]
+			
+	#macro JOY_SHOULDERLB_VALUE [ gamepad_button_value(0, gp_shoulderlb), gamepad_button_value(1, gp_shoulderlb), gamepad_button_value(2, gp_shoulderlb), gamepad_button_value(3, gp_shoulderlb), gamepad_button_value(4, gp_shoulderlb), gamepad_button_value(5, gp_shoulderlb), gamepad_button_value(6, gp_shoulderlb), gamepad_button_value(7, gp_shoulderlb), gamepad_button_value(8, gp_shoulderlb), gamepad_button_value(9, gp_shoulderlb), gamepad_button_value(10, gp_shoulderlb), gamepad_button_value(11, gp_shoulderlb) ]
+	#macro JOY_SHOULDERLB [ gamepad_button_check(0, gp_shoulderlb), gamepad_button_check(1, gp_shoulderlb), gamepad_button_check(2, gp_shoulderlb), gamepad_button_check(3, gp_shoulderlb), gamepad_button_check(4, gp_shoulderlb), gamepad_button_check(5, gp_shoulderlb), gamepad_button_check(6, gp_shoulderlb), gamepad_button_check(7, gp_shoulderlb), gamepad_button_check(8, gp_shoulderlb), gamepad_button_check(9, gp_shoulderlb), gamepad_button_check(10, gp_shoulderlb), gamepad_button_check(11, gp_shoulderlb) ]
+	#macro JOY_SHOULDERLB_PRESSED [ gamepad_button_check_pressed(0, gp_shoulderlb), gamepad_button_check_pressed(1, gp_shoulderlb), gamepad_button_check_pressed(2, gp_shoulderlb), gamepad_button_check_pressed(3, gp_shoulderlb), gamepad_button_check_pressed(4, gp_shoulderlb), gamepad_button_check_pressed(5, gp_shoulderlb), gamepad_button_check_pressed(6, gp_shoulderlb), gamepad_button_check_pressed(7, gp_shoulderlb), gamepad_button_check_pressed(8, gp_shoulderlb), gamepad_button_check_pressed(9, gp_shoulderlb), gamepad_button_check_pressed(10, gp_shoulderlb), gamepad_button_check_pressed(11, gp_shoulderlb) ]
+	#macro JOY_SHOULDERLB_RELEASED [ gamepad_button_check_released(0, gp_shoulderlb), gamepad_button_check_released(1, gp_shoulderlb), gamepad_button_check_released(2, gp_shoulderlb), gamepad_button_check_released(3, gp_shoulderlb), gamepad_button_check_released(4, gp_shoulderlb), gamepad_button_check_released(5, gp_shoulderlb), gamepad_button_check_released(6, gp_shoulderlb), gamepad_button_check_released(7, gp_shoulderlb), gamepad_button_check_released(8, gp_shoulderlb), gamepad_button_check_released(9, gp_shoulderlb), gamepad_button_check_released(10, gp_shoulderlb), gamepad_button_check_released(11, gp_shoulderlb) ]
+			
+	#macro JOY_SHOULDERR [ gamepad_button_check(0, gp_shoulderr), gamepad_button_check(1, gp_shoulderr), gamepad_button_check(2, gp_shoulderr), gamepad_button_check(3, gp_shoulderr), gamepad_button_check(4, gp_shoulderr), gamepad_button_check(5, gp_shoulderr), gamepad_button_check(6, gp_shoulderr), gamepad_button_check(7, gp_shoulderr), gamepad_button_check(8, gp_shoulderr), gamepad_button_check(9, gp_shoulderr), gamepad_button_check(10, gp_shoulderr), gamepad_button_check(11, gp_shoulderr) ]
+	#macro JOY_SHOULDERR_PRESSED [ gamepad_button_check_pressed(0, gp_shoulderr), gamepad_button_check_pressed(1, gp_shoulderr), gamepad_button_check_pressed(2, gp_shoulderr), gamepad_button_check_pressed(3, gp_shoulderr), gamepad_button_check_pressed(4, gp_shoulderr), gamepad_button_check_pressed(5, gp_shoulderr), gamepad_button_check_pressed(6, gp_shoulderr), gamepad_button_check_pressed(7, gp_shoulderr), gamepad_button_check_pressed(8, gp_shoulderr), gamepad_button_check_pressed(9, gp_shoulderr), gamepad_button_check_pressed(10, gp_shoulderr), gamepad_button_check_pressed(11, gp_shoulderr) ]
+	#macro JOY_SHOULDERR_RELEASED [ gamepad_button_check_released(0, gp_shoulderr), gamepad_button_check_released(1, gp_shoulderr), gamepad_button_check_released(2, gp_shoulderr), gamepad_button_check_released(3, gp_shoulderr), gamepad_button_check_released(4, gp_shoulderr), gamepad_button_check_released(5, gp_shoulderr), gamepad_button_check_released(6, gp_shoulderr), gamepad_button_check_released(7, gp_shoulderr), gamepad_button_check_released(8, gp_shoulderr), gamepad_button_check_released(9, gp_shoulderr), gamepad_button_check_released(10, gp_shoulderr), gamepad_button_check_released(11, gp_shoulderr) ]
+			
+	#macro JOY_SHOULDERRB_VALUE [ gamepad_button_value(0, gp_shoulderrb), gamepad_button_value(1, gp_shoulderrb), gamepad_button_value(2, gp_shoulderrb), gamepad_button_value(3, gp_shoulderrb), gamepad_button_value(4, gp_shoulderrb), gamepad_button_value(5, gp_shoulderrb), gamepad_button_value(6, gp_shoulderrb), gamepad_button_value(7, gp_shoulderrb), gamepad_button_value(8, gp_shoulderrb), gamepad_button_value(9, gp_shoulderrb), gamepad_button_value(10, gp_shoulderrb), gamepad_button_value(11, gp_shoulderrb) ]
+	#macro JOY_SHOULDERRB [ gamepad_button_check(0, gp_shoulderrb), gamepad_button_check(1, gp_shoulderrb), gamepad_button_check(2, gp_shoulderrb), gamepad_button_check(3, gp_shoulderrb), gamepad_button_check(4, gp_shoulderrb), gamepad_button_check(5, gp_shoulderrb), gamepad_button_check(6, gp_shoulderrb), gamepad_button_check(7, gp_shoulderrb), gamepad_button_check(8, gp_shoulderrb), gamepad_button_check(9, gp_shoulderrb), gamepad_button_check(10, gp_shoulderrb), gamepad_button_check(11, gp_shoulderrb) ]
+	#macro JOY_SHOULDERRB_PRESSED [ gamepad_button_check_pressed(0, gp_shoulderrb), gamepad_button_check_pressed(1, gp_shoulderrb), gamepad_button_check_pressed(2, gp_shoulderrb), gamepad_button_check_pressed(3, gp_shoulderrb), gamepad_button_check_pressed(4, gp_shoulderrb), gamepad_button_check_pressed(5, gp_shoulderrb), gamepad_button_check_pressed(6, gp_shoulderrb), gamepad_button_check_pressed(7, gp_shoulderrb), gamepad_button_check_pressed(8, gp_shoulderrb), gamepad_button_check_pressed(9, gp_shoulderrb), gamepad_button_check_pressed(10, gp_shoulderrb), gamepad_button_check_pressed(11, gp_shoulderrb) ]
+	#macro JOY_SHOULDERRB_RELEASED [ gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb), gamepad_button_check_released(0, gp_shoulderrb) ]
+			
+	#macro JOY_SELECT [ gamepad_button_check(0, gp_select), gamepad_button_check(1, gp_select), gamepad_button_check(2, gp_select), gamepad_button_check(3, gp_select), gamepad_button_check(4, gp_select), gamepad_button_check(5, gp_select), gamepad_button_check(6, gp_select), gamepad_button_check(7, gp_select), gamepad_button_check(8, gp_select), gamepad_button_check(9, gp_select), gamepad_button_check(10, gp_select), gamepad_button_check(11, gp_select) ]
+	#macro JOY_SELECT_PRESSED [ gamepad_button_check_pressed(0, gp_select), gamepad_button_check_pressed(1, gp_select), gamepad_button_check_pressed(2, gp_select), gamepad_button_check_pressed(3, gp_select), gamepad_button_check_pressed(4, gp_select), gamepad_button_check_pressed(5, gp_select), gamepad_button_check_pressed(6, gp_select), gamepad_button_check_pressed(7, gp_select), gamepad_button_check_pressed(8, gp_select), gamepad_button_check_pressed(9, gp_select), gamepad_button_check_pressed(10, gp_select), gamepad_button_check_pressed(11, gp_select) ]
+	#macro JOY_SELECT_RELEASED [ gamepad_button_check_released(0, gp_select), gamepad_button_check_released(1, gp_select), gamepad_button_check_released(2, gp_select), gamepad_button_check_released(3, gp_select), gamepad_button_check_released(4, gp_select), gamepad_button_check_released(5, gp_select), gamepad_button_check_released(6, gp_select), gamepad_button_check_released(7, gp_select), gamepad_button_check_released(8, gp_select), gamepad_button_check_released(9, gp_select), gamepad_button_check_released(10, gp_select), gamepad_button_check_released(11, gp_select) ]
+	
+	#macro JOY_START [ gamepad_button_check(0, gp_start), gamepad_button_check(1, gp_start), gamepad_button_check(2, gp_start), gamepad_button_check(3, gp_start), gamepad_button_check(4, gp_start), gamepad_button_check(5, gp_start), gamepad_button_check(6, gp_start), gamepad_button_check(7, gp_start), gamepad_button_check(8, gp_start), gamepad_button_check(9, gp_start), gamepad_button_check(10, gp_start), gamepad_button_check(11, gp_start) ]
+	#macro JOY_START_PRESSED [ gamepad_button_check_pressed(0, gp_start), gamepad_button_check_pressed(1, gp_start), gamepad_button_check_pressed(2, gp_start), gamepad_button_check_pressed(3, gp_start), gamepad_button_check_pressed(4, gp_start), gamepad_button_check_pressed(5, gp_start), gamepad_button_check_pressed(6, gp_start), gamepad_button_check_pressed(7, gp_start), gamepad_button_check_pressed(8, gp_start), gamepad_button_check_pressed(9, gp_start), gamepad_button_check_pressed(10, gp_start), gamepad_button_check_pressed(11, gp_start) ]
+	#macro JOY_START_RELEASED [ gamepad_button_check_released(0, gp_start), gamepad_button_check_released(1, gp_start), gamepad_button_check_released(2, gp_start), gamepad_button_check_released(3, gp_start), gamepad_button_check_released(4, gp_start), gamepad_button_check_released(5, gp_start), gamepad_button_check_released(6, gp_start), gamepad_button_check_released(7, gp_start), gamepad_button_check_released(8, gp_start), gamepad_button_check_released(9, gp_start), gamepad_button_check_released(10, gp_start), gamepad_button_check_released(11, gp_start) ]
+	
 #endregion
 
 #region KEYBOARD DEFINITIONS

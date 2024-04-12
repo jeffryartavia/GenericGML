@@ -3,7 +3,7 @@ draw_self();
 //draw_text(100, 100, y);
 //draw_text(100, 130, -string_height(credits_text));
 
-draw_set_font(fnt_credits);
+draw_set_font(global.fnt_credits);
 draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 

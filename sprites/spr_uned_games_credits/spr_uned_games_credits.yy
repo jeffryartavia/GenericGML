@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"brand logos",
+    "path":"folders/Objects/brand logos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

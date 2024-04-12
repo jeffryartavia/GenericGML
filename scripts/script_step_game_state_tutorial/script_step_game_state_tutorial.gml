@@ -5,9 +5,11 @@ function step_game_state_tutorial(){
 		    instance_create_layer(CENTER_HORIZONTAL_CAMERA0, CENTER_VERTICAL_CAMERA0, "Instances", obj_tutorial);
 		}
 
-		if (KEY_ENTER || global.joy_face1[0]) {
+		if (KEY_ESCAPE || JOY_FACE2[0]) {
 			global.game_state = GAME_STATES.PLAYING;
-			instance_create_depth(x,y, DEPTH_OBJ_FADE_OUT_ROOM, obj_transition_room,{_next_room : rm_stage_001});
+			if (!instance_exists(obj_transition_room)) {
+				instance_create_depth(x,y, DEPTH_OBJ_FADE_OUT_ROOM, obj_transition_room,{_next_room : rm_stage_001});
+			}
 		}
 		
 	}

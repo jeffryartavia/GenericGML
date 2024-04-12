@@ -1,6 +1,6 @@
 draw_self();
 
-draw_set_font(fnt_menu_option);
+draw_set_font(global.fnt_menu_option);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 

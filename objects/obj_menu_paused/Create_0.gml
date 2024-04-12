@@ -13,3 +13,6 @@ for (var _i = 0; _i < arr_buttons_length; ++_i) {
     instance_create_layer(x, y+_gap, "Instances", obj_option_menu_paused, {button_text: arr_button_states[_i], button_index: _i, parent_menu: object_index});
 	_gap += 125;
 }
+
+
+audio_play_sound(snd_paused, 1, false);
